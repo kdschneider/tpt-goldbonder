@@ -8,7 +8,7 @@ name: blogdown
 
 jobs:
   blogdown:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
