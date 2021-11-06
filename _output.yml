@@ -1,7 +1,7 @@
 bookdown::bs4_book:
   css: static/css/bs4_style.css
   theme:
-    primary: "#06e76ff"
+    primary: "#006e76ff"
   repo: https://github.com/kdschneider/tpt-goldbonder
   template: static/templates/bs4_german.html
 bookdown::pdf_book:

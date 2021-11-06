@@ -4,13 +4,12 @@ author: "Konstantin Schneider"
 date: "Zuletzt aktualisiert: `r lubridate::now()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: bib.bib
+bibliography: static/bib.bib
 url: https://kdschneider.github.io/tpt-goldbonder
 cover-image: static/img/title_image.jpg
 description: |
   Bericht für SHK Lehrstuhl Weiss. 
 biblio-style: apalike
-csl: chicago-fullnote-bibliography.csl
 ---
 
 # About
