@@ -4,7 +4,7 @@ author: "Konstantin Schneider"
 date: "Zuletzt aktualisiert: `r lubridate::now()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: bib.bib]
+bibliography: bib.bib
 url: https://kdschneider.github.io/tpt-goldbonder
 cover-image: static/img/title_image.jpg
 description: |
@@ -47,12 +47,4 @@ As you work, you may start a local server to live preview this HTML book. This p
 
 ```{r eval=FALSE}
 bookdown::serve_book()
-```
-
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
 ```
