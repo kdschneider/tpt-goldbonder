@@ -1,16 +1,14 @@
 --- 
-title: "A Minimal Book Example"
-author: "John Doe"
-date: "`r Sys.Date()`"
+title: "Prozessoptimierung am tpt Gold-Bonder"
+author: "Konstantin Schneider"
+date: "Zuletzt aktualisiert: `r lubridate::now()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
+bibliography: bib.bib]
+url: https://kdschneider.github.io/tpt-goldbonder
+cover-image: static/img/title_image.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::bs4_book,
-  set in the _output.yml file.
+  Bericht für SHK Lehrstuhl Weiss. 
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
