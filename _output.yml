@@ -1,7 +1,7 @@
 bookdown::bs4_book:
   css: bs4_style.css
   theme:
-    primary: "#096B72"
+    primary: "#06e76ff"
   repo: https://github.com/rstudio/bookdown-demo
 bookdown::pdf_book:
   includes:
@@ -9,4 +9,3 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
-bookdown::epub_book: default
