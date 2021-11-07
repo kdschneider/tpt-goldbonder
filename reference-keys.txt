@@ -41,5 +41,3 @@ pt-bbd-methods
 auswertung-2
 regression-1
 pt-conclusion
-appendix-csar
-code-ausführen-bericht-rendern
