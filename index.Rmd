@@ -3,7 +3,6 @@ title: "Prozessoptimierung am tpt Gold-Bonder"
 author: "Konstantin Schneider"
 date: "`r format(lubridate::today(), '%d. %b %Y')`"
 site: bookdown::bookdown_site
-documentclass: book
 bibliography: static/bib.bib
 url: https://kdschneider.github.io/tpt-goldbonder
 cover-image: static/img/title_image.jpg
@@ -12,9 +11,20 @@ description: |
 biblio-style: apalike
 favicon: static/img/favicon.ico
 cache: true
+# latex
+titlepage: true
+titlepage-background: static/titlepage_background.pdf
+titlepage-text-color: FFFFFF
+titlepage-rule-height: 0
+toc-own-page: true
 params: 
-  online: false
+  online: yes
+  show_code: yes
 ---
-
+ 
 ```{r conditional_print, child='R/index_online.Rmd', eval = params$online}
 ```
+
+`r if (params$online == FALSE) '<!--'`
+
+`r if (params$online == FALSE) '-->'`

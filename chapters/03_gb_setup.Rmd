@@ -1,4 +1,4 @@
-# (PART) Gatedurchbrüche {#gatebreak}
+# (PART) Gatedurchbrüche {#gatebreak -}
 
 # Messaufbau {#setup}
 
