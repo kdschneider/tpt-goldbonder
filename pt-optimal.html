@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>10 Optimierung der Haltekraft | Prozessoptimierung am tpt Gold-Bonder</title>
+<meta name="author" content="Konstantin Schneider">
+<meta name="description" content='library(tidyverse) load(here::here("data/pulltest/pt_bbd.rda")) load(here::here("data/pulltest/pt_bbd_regression.rda")) load(here::here("data/pulltest/pt_bbd_plots.rda")) Es soll die maximale...'>
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="10 Optimierung der Haltekraft | Prozessoptimierung am tpt Gold-Bonder">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://kdschneider.github.io/tpt-goldbonder/pt-optimal.html">
+<meta property="og:image" content="https://kdschneider.github.io/tpt-goldbonder/static/img/title_image.jpg">
+<meta property="og:description" content='library(tidyverse) load(here::here("data/pulltest/pt_bbd.rda")) load(here::here("data/pulltest/pt_bbd_regression.rda")) load(here::here("data/pulltest/pt_bbd_plots.rda")) Es soll die maximale...'>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="10 Optimierung der Haltekraft | Prozessoptimierung am tpt Gold-Bonder">
+<meta name="twitter:description" content='library(tidyverse) load(here::here("data/pulltest/pt_bbd.rda")) load(here::here("data/pulltest/pt_bbd_regression.rda")) load(here::here("data/pulltest/pt_bbd_plots.rda")) Es soll die maximale...'>
+<meta name="twitter:image" content="https://kdschneider.github.io/tpt-goldbonder/static/img/title_image.jpg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="static/css/bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Prozessoptimierung am tpt Gold-Bonder</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Suche" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Inhaltsverzeichnis</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Index</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Einleitung</a></li>
+<li><a class="" href="sample-prep.html"><span class="header-section-number">2</span> Probenherstellung</a></li>
+<li class="book-part">Gatedurchbrüche</li>
+<li><a class="" href="setup.html"><span class="header-section-number">4</span> Messaufbau</a></li>
+<li><a class="" href="gb-screening.html"><span class="header-section-number">5</span> Screening Experiment</a></li>
+<li><a class="" href="gb-mock.html"><span class="header-section-number">6</span> Test der optimalen Parameterwerte</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">7</span> Fazit</a></li>
+<li class="book-part">Pull-Test</li>
+<li><a class="" href="pt-pulltester.html"><span class="header-section-number">9</span> Pulltester</a></li>
+<li><a class="active" href="pt-optimal.html"><span class="header-section-number">10</span> Optimierung der Haltekraft</a></li>
+<li><a class="" href="pt-conclusion.html"><span class="header-section-number">11</span> Fazit</a></li>
+<li class="book-part">Anhang</li>
+<li><a class="" href="appendix-csar.html"><span class="header-section-number">A</span> CSAR 9% Rezept</a></li>
+<li><a class="" href="code-ausf%C3%BChren-bericht-rendern.html"><span class="header-section-number">B</span> Code ausführen &amp; Bericht rendern</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/kdschneider/tpt-goldbonder">Quellcode/Daten <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pt-optimal" class="section level1">
+<h1>
+<span class="header-section-number">10</span> Optimierung der Haltekraft<a class="anchor" aria-label="anchor" href="#pt-optimal"><i class="fas fa-link"></i></a>
+</h1>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/pulltest/pt_bbd.rda"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/pulltest/pt_bbd_regression.rda"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/pulltest/pt_bbd_plots.rda"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Es soll die maximale Haltekraft eines Bonds durch Pull-Tests und Methoden der statistischen Versuchsplanung optimiert werden.</p>
+<div id="pt-doe" class="section level2">
+<h2>
+<span class="header-section-number">10.1</span> Versuchsplanung<a class="anchor" aria-label="anchor" href="#pt-doe"><i class="fas fa-link"></i></a>
+</h2>
+<p>Da nach optimale Parameterwerte gesucht werden, ist ein vollständiger Versuchsplan mit zwei Leveln pro Faktor nicht mehr ausreichend. Um mittels eines quadratischen Modells optimale Parameterwerte zu finden, werden mindestens drei Level pro Faktor benötigt. Der Arbeitsaufwand kann dabei durch ein <em>Central Composite Design</em> (CCD) bzw. ein <em>Box-Behnken-Design</em> (BBD) minimiert werden.</p>
+<p>Ich habe mich hier für ein BBD entschieden, da dieses keine extreme Levelkombinationen (alles hoch/alles niedrig) vermeidet. Diese Levelkombinationen sind weniger interessant, da bekannt ist, dass diese nur selten zu brauchbaren Bonds führen. Zudem wird dass Bondtool geschont, da keine exzessiven Parameterwerte am Bonder verwendet werden müssen.</p>
+<p>Die Parameter von Interesse sind:</p>
+<ul>
+<li>Ultraschallleistung</li>
+<li>Bondzeit</li>
+<li>Bondkraft</li>
+<li>Schichtdicke: Gold</li>
+<li>Schichtdicke: Chrom</li>
+<li>Tempereratur des Probenhalters</li>
+</ul>
+</div>
+<div id="pt-bbd-methods" class="section level2">
+<h2>
+<span class="header-section-number">10.2</span> Durchführung<a class="anchor" aria-label="anchor" href="#pt-bbd-methods"><i class="fas fa-link"></i></a>
+</h2>
+<p>Es wurden 9x2 Proben flächendeckend mit Cr/Au bedampft und auf Chipträger geklebt. Die Chips wurden anschließend anhand des Versuchsplans mit Bonds versehen, deren Qualität durch einen destruktiven Pull-Test getestet wurden.</p>
+</div>
+<div id="auswertung-2" class="section level2">
+<h2>
+<span class="header-section-number">10.3</span> Auswertung<a class="anchor" aria-label="anchor" href="#auswertung-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Abbildung <a href="pt-optimal.html#fig:pt-bbd1-index">10.1</a> zeigt die gemessene maximale Zugkraft gegen die Versuchsreihenfolge aufgetragen. Die horizontalen Linien signalisieren den Mittelwert der Messungen mit einer Einstellung des Bondtools. Dies zeigt, dass das Justieren des Bondtools einen großen Einfluss auf die Qualität der Bonds hatte. Besonders nach der ersten Justierung kam es zu einem starken Abfall der mittleren Haltekraft.</p>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plot_bbd_runorder</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:pt-bbd1-index"></span>
+<img src="tpt_goldbonder_bericht_files/figure-html/pt-bbd1-index-1.png" alt="Plot der Versuchsreihenfolge. Im Idealfall sollte kein Muster zu erkennen sein, allerdings hat eine Justierung des Bondtools eindeutig einen Einfluss auf die Qualität der Bonds." width="100%"><p class="caption">
+Abbildung 10.1: Plot der Versuchsreihenfolge. Im Idealfall sollte kein Muster zu erkennen sein, allerdings hat eine Justierung des Bondtools eindeutig einen Einfluss auf die Qualität der Bonds.
+</p>
+</div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plot_bbd_effect</span></code></pre></div>
+<div class="inline-figure"><img src="tpt_goldbonder_bericht_files/figure-html/unnamed-chunk-19-1.png" width="100%" style="display: block; margin: auto;"></div>
+<div id="regression-1" class="section level3">
+<h3>
+<span class="header-section-number">10.3.1</span> Regression<a class="anchor" aria-label="anchor" href="#regression-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">model_bbd</span> |&gt; 
+  <span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="9%">
+<col width="12%">
+<col width="8%">
+<col width="9%">
+<col width="9%">
+<col width="2%">
+<col width="9%">
+<col width="8%">
+<col width="7%">
+<col width="8%">
+<col width="11%">
+<col width="4%">
+</colgroup>
+<thead><tr class="header">
+<th align="right">r.squared</th>
+<th align="right">adj.r.squared</th>
+<th align="right">sigma</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">df</th>
+<th align="right">logLik</th>
+<th align="right">AIC</th>
+<th align="right">BIC</th>
+<th align="right">deviance</th>
+<th align="right">df.residual</th>
+<th align="right">nobs</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">0.4841147</td>
+<td align="right">-0.1724666</td>
+<td align="right">14.38831</td>
+<td align="right">0.7373263</td>
+<td align="right">0.7787796</td>
+<td align="right">28</td>
+<td align="right">-186.9131</td>
+<td align="right">433.8262</td>
+<td align="right">491.781</td>
+<td align="right">4554.518</td>
+<td align="right">22</td>
+<td align="right">51</td>
+</tr></tbody>
+</table></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">model_bbd</span> |&gt; 
+  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">284.6922482</td>
+<td align="right">208.4356867</td>
+<td align="right">1.3658518</td>
+<td align="right">0.1857874</td>
+</tr>
+<tr class="even">
+<td align="left">run.order</td>
+<td align="right">-0.1682052</td>
+<td align="right">0.1917759</td>
+<td align="right">-0.8770924</td>
+<td align="right">0.3899141</td>
+</tr>
+<tr class="odd">
+<td align="left">ultrasound</td>
+<td align="right">0.4653871</td>
+<td align="right">0.8695193</td>
+<td align="right">0.5352234</td>
+<td align="right">0.5978646</td>
+</tr>
+<tr class="even">
+<td align="left">time</td>
+<td align="right">-1.0539409</td>
+<td align="right">1.0649803</td>
+<td align="right">-0.9896342</td>
+<td align="right">0.3331133</td>
+</tr>
+<tr class="odd">
+<td align="left">force</td>
+<td align="right">-0.2723444</td>
+<td align="right">0.9361758</td>
+<td align="right">-0.2909116</td>
+<td align="right">0.7738438</td>
+</tr>
+<tr class="even">
+<td align="left">temperature</td>
+<td align="right">-0.3382991</td>
+<td align="right">0.8138080</td>
+<td align="right">-0.4156990</td>
+<td align="right">0.6816571</td>
+</tr>
+<tr class="odd">
+<td align="left">chrome</td>
+<td align="right">-15.4049038</td>
+<td align="right">9.2596635</td>
+<td align="right">-1.6636570</td>
+<td align="right">0.1103623</td>
+</tr>
+<tr class="even">
+<td align="left">gold</td>
+<td align="right">-2.0711556</td>
+<td align="right">1.3016319</td>
+<td align="right">-1.5911992</td>
+<td align="right">0.1258329</td>
+</tr>
+<tr class="odd">
+<td align="left">I(ultrasound^2)</td>
+<td align="right">-0.0003382</td>
+<td align="right">0.0020164</td>
+<td align="right">-0.1677157</td>
+<td align="right">0.8683391</td>
+</tr>
+<tr class="even">
+<td align="left">I(time^2)</td>
+<td align="right">0.0009773</td>
+<td align="right">0.0021395</td>
+<td align="right">0.4568122</td>
+<td align="right">0.6522845</td>
+</tr>
+<tr class="odd">
+<td align="left">I(force^2)</td>
+<td align="right">-0.0004797</td>
+<td align="right">0.0019429</td>
+<td align="right">-0.2469206</td>
+<td align="right">0.8072593</td>
+</tr>
+<tr class="even">
+<td align="left">I(temperature^2)</td>
+<td align="right">-0.0000505</td>
+<td align="right">0.0020149</td>
+<td align="right">-0.0250719</td>
+<td align="right">0.9802236</td>
+</tr>
+<tr class="odd">
+<td align="left">I(chrome^2)</td>
+<td align="right">0.2466827</td>
+<td align="right">0.3113169</td>
+<td align="right">0.7923846</td>
+<td align="right">0.4365982</td>
+</tr>
+<tr class="even">
+<td align="left">I(gold^2)</td>
+<td align="right">0.0107551</td>
+<td align="right">0.0055079</td>
+<td align="right">1.9526785</td>
+<td align="right">0.0636965</td>
+</tr>
+<tr class="odd">
+<td align="left">ultrasound:time</td>
+<td align="right">-0.0011470</td>
+<td align="right">0.0020713</td>
+<td align="right">-0.5537614</td>
+<td align="right">0.5853271</td>
+</tr>
+<tr class="even">
+<td align="left">ultrasound:force</td>
+<td align="right">-0.0007290</td>
+<td align="right">0.0020887</td>
+<td align="right">-0.3490110</td>
+<td align="right">0.7303993</td>
+</tr>
+<tr class="odd">
+<td align="left">ultrasound:temperature</td>
+<td align="right">0.0002644</td>
+<td align="right">0.0022572</td>
+<td align="right">0.1171244</td>
+<td align="right">0.9078242</td>
+</tr>
+<tr class="even">
+<td align="left">ultrasound:chrome</td>
+<td align="right">0.0038486</td>
+<td align="right">0.0264323</td>
+<td align="right">0.1456004</td>
+<td align="right">0.8855627</td>
+</tr>
+<tr class="odd">
+<td align="left">ultrasound:gold</td>
+<td align="right">-0.0011695</td>
+<td align="right">0.0025573</td>
+<td align="right">-0.4573343</td>
+<td align="right">0.6519150</td>
+</tr>
+<tr class="even">
+<td align="left">time:force</td>
+<td align="right">0.0018413</td>
+<td align="right">0.0020564</td>
+<td align="right">0.8953695</td>
+<td align="right">0.3802819</td>
+</tr>
+<tr class="odd">
+<td align="left">time:temperature</td>
+<td align="right">-0.0005225</td>
+<td align="right">0.0019816</td>
+<td align="right">-0.2636628</td>
+<td align="right">0.7944937</td>
+</tr>
+<tr class="even">
+<td align="left">time:chrome</td>
+<td align="right">0.0446069</td>
+<td align="right">0.0182235</td>
+<td align="right">2.4477611</td>
+<td align="right">0.0228182</td>
+</tr>
+<tr class="odd">
+<td align="left">time:gold</td>
+<td align="right">0.0032088</td>
+<td align="right">0.0034922</td>
+<td align="right">0.9188549</td>
+<td align="right">0.3681366</td>
+</tr>
+<tr class="even">
+<td align="left">force:temperature</td>
+<td align="right">0.0008188</td>
+<td align="right">0.0014586</td>
+<td align="right">0.5613684</td>
+<td align="right">0.5802204</td>
+</tr>
+<tr class="odd">
+<td align="left">force:chrome</td>
+<td align="right">0.0168857</td>
+<td align="right">0.0259521</td>
+<td align="right">0.6506498</td>
+<td align="right">0.5220105</td>
+</tr>
+<tr class="even">
+<td align="left">force:gold</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0033078</td>
+<td align="right">0.0000142</td>
+<td align="right">0.9999888</td>
+</tr>
+<tr class="odd">
+<td align="left">temperature:chrome</td>
+<td align="right">0.0055941</td>
+<td align="right">0.0255715</td>
+<td align="right">0.2187619</td>
+<td align="right">0.8288522</td>
+</tr>
+<tr class="even">
+<td align="left">temperature:gold</td>
+<td align="right">0.0024249</td>
+<td align="right">0.0034635</td>
+<td align="right">0.7001360</td>
+<td align="right">0.4911806</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="chrome:gold" class="uri">chrome:gold</a></td>
+<td align="right">-0.0188015</td>
+<td align="right">0.0426192</td>
+<td align="right">-0.4411523</td>
+<td align="right">0.6634078</td>
+</tr>
+</tbody>
+</table></div>
+<!-- ## Experiment 2 --><!-- Da die Daten des ersten Experiments durch das justieren des Bondtools sehr stark beeinflusst wurden, muss das Experiment wiederholt werden. Es ist jedoch nicht möglich/sinnvoll wieder 10 Messungen pro Versuch zu machen, da der Zeit- und Materialaufwand bei Experiment 1 enorm groß war. Stattdessen wird jeder Versuch nur einmal wiederholt. Dadurch kann sichergestellt werden, dass die Messungen innerhalb eines Tages und ohne Veränderungen am Bondtool durchgeführt werden können. --><!-- ### Versuchsplanung --><!-- Wie in Experiment 1 -->
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="pt-pulltester.html"><span class="header-section-number">9</span> Pulltester</a></div>
+<div class="next"><a href="pt-conclusion.html"><span class="header-section-number">11</span> Fazit</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="In diesem Kapitel"><h2>In diesem Kapitel</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pt-optimal"><span class="header-section-number">10</span> Optimierung der Haltekraft</a></li>
+<li><a class="nav-link" href="#pt-doe"><span class="header-section-number">10.1</span> Versuchsplanung</a></li>
+<li><a class="nav-link" href="#pt-bbd-methods"><span class="header-section-number">10.2</span> Durchführung</a></li>
+<li>
+<a class="nav-link" href="#auswertung-2"><span class="header-section-number">10.3</span> Auswertung</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#regression-1"><span class="header-section-number">10.3.1</span> Regression</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/kdschneider/tpt-goldbonder/blob/main/chapters/08_pt_bbd.Rmd">Quellcode/Daten <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/kdschneider/tpt-goldbonder/edit/main/chapters/08_pt_bbd.Rmd">Bearbeiten <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Prozessoptimierung am tpt Gold-Bonder</strong>"</p>
+    <p>Konstantin Schneider</p>
+    <p>Zuletzt aktualisiert: 07. Nov 2021.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p> Verfasst für <a class="text-light" href="http://www.physik.uni-regensburg.de/forschung/eroms/index.phtml">AG Graphene</a> (PD Dr. Jonathan Eroms).</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>2 Probenherstellung | Prozessoptimierung am tpt Gold-Bonder</title>
 <meta name="author" content="Konstantin Schneider">
-<meta name="description" content="#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ── #&gt; ✔ ggplot2 3.3.5   ✔ purrr  0.3.4 #&gt; ✔ tibble 3.1.5   ✔ dplyr  1.0.7 #&gt; ✔ tidyr  1.1.4   ✔ stringr 1.4.0 #&gt; ✔...">
+<meta name="description" content="library(tidyverse) Um den Einfluss des Wire-Bondens am tpt Gold-Bonder auf Gate-Durchbrüche zu untersuchen, wurden Chips mit Bondpads aus Gold/Chrom versehen. Hierfür wurden Chips aus Si/SiO2...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="2 Probenherstellung | Prozessoptimierung am tpt Gold-Bonder">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://kdschneider.github.io/tpt-goldbonder/sample-prep.html">
 <meta property="og:image" content="https://kdschneider.github.io/tpt-goldbonder/static/img/title_image.jpg">
-<meta property="og:description" content="#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ── #&gt; ✔ ggplot2 3.3.5   ✔ purrr  0.3.4 #&gt; ✔ tibble 3.1.5   ✔ dplyr  1.0.7 #&gt; ✔ tidyr  1.1.4   ✔ stringr 1.4.0 #&gt; ✔...">
+<meta property="og:description" content="library(tidyverse) Um den Einfluss des Wire-Bondens am tpt Gold-Bonder auf Gate-Durchbrüche zu untersuchen, wurden Chips mit Bondpads aus Gold/Chrom versehen. Hierfür wurden Chips aus Si/SiO2...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2 Probenherstellung | Prozessoptimierung am tpt Gold-Bonder">
-<meta name="twitter:description" content="#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ── #&gt; ✔ ggplot2 3.3.5   ✔ purrr  0.3.4 #&gt; ✔ tibble 3.1.5   ✔ dplyr  1.0.7 #&gt; ✔ tidyr  1.1.4   ✔ stringr 1.4.0 #&gt; ✔...">
+<meta name="twitter:description" content="library(tidyverse) Um den Einfluss des Wire-Bondens am tpt Gold-Bonder auf Gate-Durchbrüche zu untersuchen, wurden Chips mit Bondpads aus Gold/Chrom versehen. Hierfür wurden Chips aus Si/SiO2...">
 <meta name="twitter:image" content="https://kdschneider.github.io/tpt-goldbonder/static/img/title_image.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -48,8 +48,15 @@
 <li class="book-part">Gatedurchbrüche</li>
 <li><a class="" href="setup.html"><span class="header-section-number">4</span> Messaufbau</a></li>
 <li><a class="" href="gb-screening.html"><span class="header-section-number">5</span> Screening Experiment</a></li>
-<li><a class="" href="gb-test.html"><span class="header-section-number">6</span> Test der optimalen Parameterwerte</a></li>
+<li><a class="" href="gb-mock.html"><span class="header-section-number">6</span> Test der optimalen Parameterwerte</a></li>
 <li><a class="" href="conclusion.html"><span class="header-section-number">7</span> Fazit</a></li>
+<li class="book-part">Pull-Test</li>
+<li><a class="" href="pt-pulltester.html"><span class="header-section-number">9</span> Pulltester</a></li>
+<li><a class="" href="pt-optimal.html"><span class="header-section-number">10</span> Optimierung der Haltekraft</a></li>
+<li><a class="" href="pt-conclusion.html"><span class="header-section-number">11</span> Fazit</a></li>
+<li class="book-part">Anhang</li>
+<li><a class="" href="appendix-csar.html"><span class="header-section-number">A</span> CSAR 9% Rezept</a></li>
+<li><a class="" href="code-ausf%C3%BChren-bericht-rendern.html"><span class="header-section-number">B</span> Code ausführen &amp; Bericht rendern</a></li>
 </ul>
 
         <div class="book-extra">
@@ -61,14 +68,8 @@
 <h1>
 <span class="header-section-number">2</span> Probenherstellung<a class="anchor" aria-label="anchor" href="#sample-prep"><i class="fas fa-link"></i></a>
 </h1>
-<pre><code>#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-#&gt; ✔ ggplot2 3.3.5     ✔ purrr   0.3.4
-#&gt; ✔ tibble  3.1.5     ✔ dplyr   1.0.7
-#&gt; ✔ tidyr   1.1.4     ✔ stringr 1.4.0
-#&gt; ✔ readr   2.0.2     ✔ forcats 0.5.1
-#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-#&gt; ✖ dplyr::filter() masks stats::filter()
-#&gt; ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
 <p>Um den Einfluss des Wire-Bondens am tpt Gold-Bonder auf Gate-Durchbrüche zu untersuchen, wurden Chips mit Bondpads aus Gold/Chrom versehen. Hierfür wurden Chips aus Si/SiO<sub>2</sub> verwendet. Diese wurden gereinigt, belackt und mittels Elektronenstrahllithografie “beschrieben”. Anschließend wurden Bondpads aus Chrom/Gold aufgedampft. Die einzelnen Schritte werden im Folgenden genauer erläutert.</p>
 <div id="reinigung" class="section level4 unnumbered">
 <h4>Reinigung<a class="anchor" aria-label="anchor" href="#reinigung"><i class="fas fa-link"></i></a>
@@ -89,6 +90,17 @@
 <h5>Spin-Coating<a class="anchor" aria-label="anchor" href="#spin-coating"><i class="fas fa-link"></i></a>
 </h5>
 <p>Für die Lithographie wurde der positive e-Resist Lack <em>CSAR</em> der Firma <em>Allresist</em> verwendet. Um beim Spin-Coating eine möglichst gleichmäßige Schichtdicke zu erreichen wurden unterschiedliche Kombinationen der relevanten Parameter varriiert. Dies resultierte in den Parameterwerten aus Tabelle <a href="sample-prep.html#tab:prep-spin">2.1</a>, welche zuverlässig zu guten Ergebnissen führten.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span>
+    <span class="op">~</span><span class="st">"Schritt"</span>, <span class="op">~</span><span class="st">"RPM"</span>, <span class="op">~</span><span class="st">"Ramp"</span>, <span class="op">~</span><span class="st">"Dauer"</span>, <span class="op">~</span><span class="st">"Tropfen"</span>,
+    <span class="st">"1"</span>, <span class="st">"-/-"</span>, <span class="st">"-/-"</span>, <span class="st">"-/-"</span>, <span class="st">"1-2"</span>,
+    <span class="st">"2"</span>, <span class="st">"4000"</span>, <span class="st">"800"</span>, <span class="st">"5"</span>, <span class="st">"-/-"</span>,
+    <span class="st">"3"</span>, <span class="st">"4000"</span>, <span class="st">"-/-"</span>, <span class="st">"20"</span>, <span class="st">"1-2"</span>,
+    <span class="st">"4"</span>, <span class="st">"6000"</span>, <span class="st">"800"</span>, <span class="st">"30"</span>, <span class="st">"-/-"</span>
+  <span class="op">)</span>,
+  caption <span class="op">=</span> <span class="st">"CSAR Spin-Coating Parameter."</span>
+<span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
 <span id="tab:prep-spin">Tabelle 2.1: </span>CSAR Spin-Coating Parameter.</caption>
@@ -176,7 +188,6 @@
 </h4>
 <p>Die Chips wurden mit <em>Kleber (?)</em> auf einen Chipträger geklebt. Zum Aushärten des Klebers, wurden sie anschließend für 45 Minuten bei 150 Grad Celsius auf eine Heizplatte gelegt.</p>
 
-
 </div>
 </div>
   <div class="chapter-nav">
@@ -188,8 +199,8 @@
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/kdschneider/tpt-goldbonder/blob/master/chapters/02_samples.Rmd">Quellcode/Daten <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/kdschneider/tpt-goldbonder/edit/master/chapters/02_samples.Rmd">Bearbeiten <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/kdschneider/tpt-goldbonder/blob/main/chapters/02_samples.Rmd">Quellcode/Daten <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/kdschneider/tpt-goldbonder/edit/main/chapters/02_samples.Rmd">Bearbeiten <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
