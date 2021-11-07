@@ -37,7 +37,7 @@ jobs:
         run: Rscript R/run_scripts.R
 
       - name: Build site
-        run: Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
+        run: Rscript R/render_book.R
 
       - name: Deploy to GitHub pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
