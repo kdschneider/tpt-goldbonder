@@ -4,7 +4,10 @@
 bookdown::render_book(
   input = here::here(""),
   output_format = "bookdown::bs4_book",
-  output_dir = here::here("_book")
+  output_dir = here::here("_book"),
+  params = c(
+    "online" = TRUE
+  )
 )
 
 ## render pdf
