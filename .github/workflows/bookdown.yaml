@@ -33,9 +33,9 @@ jobs:
           key: bookdown-${{ hashFiles('**/*Rmd') }}
           restore-keys: bookdown-
       
-      - name: Run data scripts
-        run: Rscript -e R/run_scripts.R
-        
+      - name: Run scripts
+        run: Rscript R/run_scripts.R
+
       - name: Build site
         run: Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
 
