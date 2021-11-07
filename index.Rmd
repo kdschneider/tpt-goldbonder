@@ -11,12 +11,10 @@ description: |
   Bericht für SHK Lehrstuhl Weiss. 
 biblio-style: apalike
 favicon: static/img/favicon.ico
+cache: true
 params: 
-  online: no
+  online: true
 ---
 
-`r if (params$online == TRUE) '
-# Index {- #index}
-
-Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).
-'`
+```{r conditional_print, child='R/index_online.Rmd', eval = params$online}
+```
