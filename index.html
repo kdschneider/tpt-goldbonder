@@ -95,16 +95,54 @@
 </tr>
 </tbody></table></div>
 </div>
-<div id="quellcode" class="section level2 unnumbered">
-<h2>Quellcode<a class="anchor" aria-label="anchor" href="#quellcode"><i class="fas fa-link"></i></a>
+<div id="code" class="section level2 unnumbered">
+<h2>Code<a class="anchor" aria-label="anchor" href="#code"><i class="fas fa-link"></i></a>
 </h2>
+<div id="quellcode" class="section level3 unnumbered">
+<h3>Quellcode<a class="anchor" aria-label="anchor" href="#quellcode"><i class="fas fa-link"></i></a>
+</h3>
 <p>Der Quellcode dieses Berichts steht <a href="https://github.com/kdschneider/tpt-goldbonder">hier</a> zur Verfügung. Die Auswertungen wurden in <code>R</code> geschrieben. Der Bericht selbst wurde mit dem <code>R</code> Paket <a href="https://github.com/rstudio/bookdown">bookdown</a> erstellt.</p>
 </div>
-<div id="bericht-lokal-rendern" class="section level2 unnumbered">
-<h2>Bericht lokal rendern<a class="anchor" aria-label="anchor" href="#bericht-lokal-rendern"><i class="fas fa-link"></i></a>
-</h2>
-<p>Um den kompletten Bericht lokal zu rendern, kann das R-Script <code>_build.R</code> ausgeführt werden. Die benötigten Pakete können über das R-Paket <a href="https://rstudio.github.io/renv/">renv</a> mit dem Befehl <code><a href="https://rstudio.github.io/renv/reference/hydrate.html">renv::hydrate()</a></code> installiert werden. Dieser installiert alle in der Datei <code>renv.lock</code> aufgeführten Pakete in der korrekten Version.</p>
-
+<div id="bericht-lokal-rendern" class="section level3 unnumbered">
+<h3>Bericht lokal rendern<a class="anchor" aria-label="anchor" href="#bericht-lokal-rendern"><i class="fas fa-link"></i></a>
+</h3>
+<p>Um den kompletten Bericht lokal zu rendern, kann das R-Script <code>_build.R</code> ausgeführt werden. Die benötigten Pakete können über das R-Paket <a href="https://rstudio.github.io/renv/">renv</a> mit dem Befehl <code><a href="https://rstudio.github.io/renv/reference/install.html">renv::install()</a></code> installiert werden. Diewser installiert alle in der Datei <code>renv.lock</code> aufgeführten Pakete in der korrekten Version.</p>
+</div>
+<div id="session-info" class="section level3 unnumbered">
+<h3>Session Info<a class="anchor" aria-label="anchor" href="#session-info"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/platform_info.html">platform_info</a></span><span class="op">(</span><span class="op">)</span> |&gt;
+  <span class="fu">enframe</span><span class="op">(</span><span class="op">)</span> |&gt; 
+  <span class="fu">unnest</span><span class="op">(</span><span class="va">value</span><span class="op">)</span> |&gt; 
+  <span class="fu">pivot_wider</span><span class="op">(</span>id_cols <span class="op">=</span> <span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, names_from <span class="op">=</span> <span class="st">"name"</span>, values_from <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> |&gt; 
+  <span class="fu">select</span><span class="op">(</span>
+    <span class="st">"Version"</span> <span class="op">=</span> <span class="va">version</span>,
+    <span class="st">"OS"</span> <span class="op">=</span> <span class="va">os</span>,
+    <span class="st">"System"</span> <span class="op">=</span> <span class="va">system</span>,
+    <span class="va">pandoc</span>
+  <span class="op">)</span> |&gt; 
+  <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="fu">everything</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> |&gt; 
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">""</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm"><tbody>
+<tr class="odd">
+<td align="left">Version</td>
+<td align="left">R version 4.1.2 (2021-11-01)</td>
+</tr>
+<tr class="even">
+<td align="left">OS</td>
+<td align="left">macOS Catalina 10.15.7</td>
+</tr>
+<tr class="odd">
+<td align="left">System</td>
+<td align="left">x86_64, darwin17.0</td>
+</tr>
+<tr class="even">
+<td align="left">pandoc</td>
+<td align="left">2.7.3 @ /usr/local/bin/ (via rmarkdown)</td>
+</tr>
+</tbody></table></div>
+</div>
 </div>
 </div>
   <div class="chapter-nav">
@@ -115,8 +153,13 @@
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#index">Index</a></li>
 <li><a class="nav-link" href="#downloads">Downloads</a></li>
+<li>
+<a class="nav-link" href="#code">Code</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#quellcode">Quellcode</a></li>
 <li><a class="nav-link" href="#bericht-lokal-rendern">Bericht lokal rendern</a></li>
+<li><a class="nav-link" href="#session-info">Session Info</a></li>
+</ul>
+</li>
 </ul>
 
       <div class="book-extra">
