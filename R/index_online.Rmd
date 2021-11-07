@@ -3,12 +3,11 @@
 Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).
 
 - Downloads 
-  - pdf
-  - html
+  - pdf [Download](./downloads/tpt_goldbonder_bericht.pdf)
 
 ## Quellcode {-}
 
-- Quellcode auf Github
+- Quellcode auf Github [GitHub](https://github.com/kdschneider/tpt-goldbonder)
 - R
 - Bookdown
 
