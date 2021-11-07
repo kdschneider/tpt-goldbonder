@@ -317,6 +317,13 @@
       "Repository": "CRAN",
       "Hash": "a76dc45f0f912e8305a405638925a0df"
     },
+    "estimability": {
+      "Package": "estimability",
+      "Version": "1.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "05901bd61be60fd3bfc5b7d7c3517d1d"
+    },
     "evaluate": {
       "Package": "evaluate",
       "Version": "0.14",
@@ -386,6 +393,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "d7566c471c7b17e095dd023b9ef155ad"
+    },
+    "ggthemes": {
+      "Package": "ggthemes",
+      "Version": "4.2.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "617fb2c300f68e8b1ba21043fba88fd7"
     },
     "globals": {
       "Package": "globals",
@@ -702,6 +716,13 @@
       "Repository": "CRAN",
       "Hash": "fbb11e44d057996ca5fe40d959cacfb0"
     },
+    "plotrix": {
+      "Package": "plotrix",
+      "Version": "3.8-2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "2ebe8c2ec200da649738b0fc35a9b1a1"
+    },
     "polynom": {
       "Package": "polynom",
       "Version": "1.4-0",
@@ -820,6 +841,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "249d8cd1e74a8f6a26194a91b47f21d1"
+    },
+    "rsm": {
+      "Package": "rsm",
+      "Version": "2.10.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "b6b32e644e3d8d94d329841b65f5309a"
     },
     "rstudioapi": {
       "Package": "rstudioapi",
