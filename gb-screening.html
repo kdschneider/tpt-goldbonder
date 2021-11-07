@@ -65,11 +65,11 @@
 <h1>
 <span class="header-section-number">4</span> Screening Experiment<a class="anchor" aria-label="anchor" href="#gb-screening"><i class="fas fa-link"></i></a>
 </h1>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://parsnip.tidymodels.org">parsnip</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_screening</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span>
   <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/gatebreak/gb-screening.rds"</span><span class="op">)</span>
 <span class="op">)</span>
@@ -89,7 +89,7 @@
 <li>Schichtdicke: Chrom</li>
 </ul>
 <p>Die verwendeten Parameterwerte und gemessenen Levelkombinationen, können Tabelle <a href="gb-screening.html#tab:screening-design">4.1</a> entnommen werden. Diese orientierten sich an den empfohlenen Werten des Herstellers (siehe Abbildung <a href="gb-screening.html#fig:recommended-values">4.1</a>).</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_screening</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">ultrasound</span><span class="op">:</span><span class="va">temperature</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span> |&gt;
@@ -185,7 +185,7 @@
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span>
   <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"static/img/tpt_recommended.png"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
@@ -203,7 +203,7 @@ Abbildung 4.1: Empfohlene Werte aus dem Handbuch des tpt HB-10 Bonders für Gold
 </h2>
 <p>Es wurden pro Levelkombination der Schichtdicke von Gold und Chrom jeweils zwei Proben mit Bondpads hergestellt (siehe Abbildung <a href="gb-screening.html#fig:screening-litho">4.2</a>). Diese wurden anschließend anhand des Versuchsplans mit Bonds versehen, wobei darauf geachtet wurde, jedes Bondpad nur einmal zu verwenden.</p>
 <p>Mit dem Keysight B1500A wurde an jedem Bond einzeln ein Spannungssweep von 0 bis 100 Volt angelegt. Nach jeder Messung wurde der gemessene Bond mikroskopisch begutachtet. Hierbei hat sich gezeigt, dass es teilweise zu Gate-Durchbrüchen kam, die rein an den Messdaten nicht erkannt worden wären.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span>
   <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"static/img/gatebreak/gb-litho-check.png"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
@@ -221,7 +221,7 @@ Abbildung 4.2: Verwendete Probengeometrie zum Messen von Gate-Durchbrüchen.
 </h2>
 <p>Von insgesamt 55 Messungen führten 11 Messungen zu einem Gate-Durchbruch. Die Kennlinien der Gate-Durchbrüche können Abbildung <a href="gb-screening.html#fig:screening-plot-kennlinie">4.3</a> entnommen werden.</p>
 <p>Die Kennlinien zeigen, dass Gate-Durchbrüche ohne eine optische Kontrolle leicht hätten übersehen können, da ein Gate-Durchbruch allein an den Daten teils nicht zu erkennen ist (vergleiche Messung 46).</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">plot_screening_kennlinie</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:screening-plot-kennlinie"></span>
@@ -230,7 +230,7 @@ Abbildung 4.3: Kennlinien aller gemessenen Gate-Durchbrüche.
 </p>
 </div>
 <p>Abbildung <a href="gb-screening.html#fig:screening-plot-effect">4.4</a> zeigt die Effekt-Plots der untersuchten Einflussgrößen. In diesem wurden die Mittelwerte der Messungen der einzelnen Level gebildet. Die Steigung des Plots signalisiert die größe des Effekts einer Einflussgröße.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">plot_screening_effect</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:screening-plot-effect"></span>
@@ -247,7 +247,7 @@ Abbildung 4.4: Effektplot der untersuchten Faktoren. Die Steigung ist ein Maß f
 <p>Somit ist eine Normalverteilung der Messergebnisse gegeben (Shapiro-Wilk: p = 0.172).</p>
 <p>Es wurde eine lineare Regression mit allen untersuchten Einflussgrößen verwendet, um die Daten zu nähern. Tabelle <a href="gb-screening.html#tab:screening-regression1">4.2</a> zeigt das Ergebnis dieser Regression.</p>
 <p>Keiner der Faktoren besitzt statistische Signifikanz (p &lt; 0.05), daher wurde die Regression schrittweise um nicht signifikante Terme reduziert.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model_screening</span> |&gt; 
   <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
   <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
@@ -296,7 +296,7 @@ Abbildung 4.4: Effektplot der untersuchten Faktoren. Die Steigung ist ein Maß f
 </tbody>
 </table></div>
 <p>Die finale Regression beinhaltet die Faktoren Ultraschallleistung, Bondkraft und Golddicke (siehe Tabelle <a href="#tab:screening-regression2"><strong>??</strong></a>)und bildet die Daten gut ab (<span class="math inline">\(R^2_{\text{adj.}}\)</span> = 88.9%, p = 0.008, vgl. Tabelle <a href="gb-screening.html#tab:screening-regression2-stats">4.3</a>). Dabei weisen Ultraschallleistung und die Dicke der Goldschicht einen statistisch signifikanten Effekt auf (p &lt; 0.05). Die Bondkraft besitzt keinen statistisch signifikanten Effekt, verbessert allerdings den Fit der Regression.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model_screening</span> |&gt; 
   <span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">r.squared</span>, <span class="va">adj.r.squared</span>, <span class="va">statistic</span>, <span class="va">p.value</span>, <span class="va">df</span><span class="op">)</span> |&gt; 
@@ -323,7 +323,7 @@ Abbildung 4.4: Effektplot der untersuchten Faktoren. Die Steigung ist ein Maß f
 </tr></tbody>
 </table></div>
 <p>Die finale Regressions-Funktion lautet:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model_screening</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/hardhat/man/hardhat-extract.html">extract_fit_engine</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
   <span class="fu">equatiomatic</span><span class="fu">::</span><span class="fu"><a href="https://datalorax.github.io/equatiomatic/reference/extract_eq.html">extract_eq</a></span><span class="op">(</span>
@@ -345,7 +345,7 @@ Abbildung 4.4: Effektplot der untersuchten Faktoren. Die Steigung ist ein Maß f
 &amp;\quad 0.166(\operatorname{AU})
 \end{aligned}
 \]</span></p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">plot_screening_contour</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:gb-screening-contour"></span>
