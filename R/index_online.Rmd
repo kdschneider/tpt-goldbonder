@@ -1,3 +1,21 @@
 # Index {- #index}
 
 Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).
+
+- Downloads 
+  - pdf
+  - html
+
+## Quellcode {-}
+
+- Quellcode auf Github
+- R
+- Bookdown
+
+## Daten {-}
+
+```{r echo = FALSE, comment=""}
+fs::dir_tree(path = here::here("data"))
+```
+
+- download

@@ -1,6 +1,8 @@
 library(tidyverse)
 library(lubridate)
 
+source(here::here("R/custom_functions.R"))
+
 ## read data ----
 ### cr/au ----
 files <- list.files(
