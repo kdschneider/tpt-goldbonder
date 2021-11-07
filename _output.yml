@@ -6,9 +6,10 @@ bookdown::bs4_book:
     base: https://github.com/kdschneider/tpt-goldbonder
     branch: main
   template: static/templates/bs4_german.html
-bookdown::pdf_book:
+bookdown::pdf_document2:
   includes:
-    in_header: preamble.tex
+    in_header: static/preamble.tex
   latex_engine: xelatex
   citation_package: natbib
-  keep_tex: yes
+  keep_tex: false
+  clean: true
