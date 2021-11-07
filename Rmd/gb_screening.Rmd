@@ -1,4 +1,10 @@
-## ----include = FALSE-----------------------------------------------------------------------------------------------------------------------------------------
+---
+title: Screening Experiment
+subtitle: Analysis Script
+author: Konstantin Schneider
+---
+
+```{r include = FALSE, purl=FALSE}
 knitr::opts_chunk$set(
   comment = "#>", 
   echo = TRUE,
@@ -6,21 +12,36 @@ knitr::opts_chunk$set(
   warning = FALSE,
   error = FALSE
 )
+```
 
+```{r echo = FALSE}
+#####################################################
+###                                               ###
+###   File created automatically. Do not change!  ###
+###   Changes will be overwritten!                ###
+###                                               ###
+#####################################################
+```
 
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Load custom functions
+
+```{r}
 source(here::here("R/custom_functions.R"))
+```
 
+## Load packages
 
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 library(tidyverse)
 library(lubridate)
 library(FrF2)
 library(patchwork)
 library(parsnip)
+```
 
+## Screening DoE
 
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 factors_screening <-
   list(
     ultrasound = c(180, 280),
@@ -52,11 +73,15 @@ design_screening <-
   ) |>
   as_tibble() |>
   select(index, rep, chip, everything())
+```
 
+```{r purl = FALSE}
+design_screening |> head()
+```
 
+## Read and wrangle measurement data
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 with_sample <-
   tibble(
     filename = list.files(
@@ -152,11 +177,17 @@ data_screening <-
   nest(measurement = c(voltage, current))
 
 remove(no_sample, with_sample)
+```
 
+```{r purl = FALSE}
+data_screening |> head()
+```
 
+## Regression
 
+### Create regression data
 
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 data_screening_regression <-
   data_screening |>
   filter(type == "with-sample") |>
@@ -169,11 +200,15 @@ data_screening_regression <-
   ) |>
   # correct count-percentage data via arcsin-transformation
   mutate(gate_break_corrected = asin(sqrt(gate_break)))
+```
 
+```{r purl = FALSE}
+data_screening_regression |> head()
+```
 
+### Shaprio test
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 shapiro_data_screening_regression <-
   shapiro.test(
     data_screening_regression$gate_break_corrected
@@ -181,11 +216,15 @@ shapiro_data_screening_regression <-
   tidy() |>
   pull(p.value) |>
   round(digits = 3)
+```
 
+```{r purl = FALSE}
+shapiro_data_screening_regression
+```
 
+## Create model
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 model_specs <-
   linear_reg() |>
   set_engine("lm")
@@ -196,11 +235,15 @@ model_screening <-
     formula = gate_break_corrected ~ ultrasound + force + gold,
     data = data_screening_regression
   )
+```
 
+```{r purl = FALSE}
+summary(model_screening$fit)
+```
 
+### Extract model parameters
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 r2_model_screening <-
   model_screening |>
   glance() |>
@@ -213,11 +256,18 @@ p_model_screening <-
   pull(p.value) |>
   as.numeric() |> 
   round(digits = 3)
+```
 
+```{r purl = FALSE}
+r2_model_screening
+p_model_screening
+```
 
+## Plots 
 
+### Kennlinie of gatebreaks
 
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 plot_screening_kennlinie <-
   data_screening |>
   filter(gate_break == TRUE) |>
@@ -244,11 +294,15 @@ plot_screening_kennlinie <-
     ncol = 3,
     scales = 'free'
   )
+```
 
+```{r purl = FALSE}
+plot_screening_kennlinie
+```
 
+### Effect plot
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 plot_screening_effect <-
   data_screening |>
   create_effect_plot(
@@ -259,11 +313,15 @@ plot_screening_effect <-
     x = "Faktorlevel",
     y = "Rel. Anzahl an Gate-Durchbrüchen"
   )
+```
 
+```{r purl = FALSE}
+plot_screening_effect
+```
 
+### Contour plot
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 n <- 100
 new_data <-
   tibble(
@@ -338,11 +396,15 @@ plot_screening_contour <-
   scale_y_continuous(n.breaks = 5)
 
 remove(n, new_data, predict_data, p1, p2, p3)
+```
 
+```{r purl = FALSE}
+plot_screening_contour
+```
 
+## Save data
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 fs::dir_create(
   path = c(
     here::here("data/doe"),
@@ -378,4 +440,5 @@ save(
   plot_screening_contour,
   file = here::here("data/gatebreak/gb_screening_plots.rda")
 )
+```
 

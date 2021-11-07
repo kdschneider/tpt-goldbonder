@@ -1,4 +1,10 @@
-## ----include = FALSE-----------------------------------------------------------------------------------------------------------------------------------------
+---
+title: Mock Experiment
+subtitle: Analysis Script
+author: Konstantin Schneider
+---
+
+```{r include = FALSE, purl=FALSE}
 knitr::opts_chunk$set(
   comment = "#>", 
   echo = TRUE,
@@ -6,25 +12,35 @@ knitr::opts_chunk$set(
   warning = FALSE,
   error = FALSE
 )
+```
+
+```{r echo = FALSE}
+#####################################################
+###                                               ###
+###   File created automatically. Do not change!  ###
+###   Changes will be overwritten!                ###
+###                                               ###
+#####################################################
+```
 
 
-## ----echo = FALSE--------------------------------------------------------------------------------------------------------------------------------------------
-#
-# File created automatically. Do not change!
-# Changes will be overwritten!
-#
+## Load custom functions
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 source(here::here("R/custom_functions.R"))
+```
 
+## Load packages
 
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 library(tidyverse)
 library(lubridate)
+```
 
+## Read and wrangle data
+### Cr/Au
 
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 files <- list.files(
   here::here("data-raw/gatebreak/mock/cr_au")
 )
@@ -65,11 +81,15 @@ data_crau <-
 
 data_mock <-
   data_crau
+```
 
+```{r purl = FALSE}
+data_mock |> head()
+```
 
+## Plots
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 plot_crau_kennlinie <-
   data_crau |>
   mutate(index = row_number()) |>
@@ -100,11 +120,13 @@ plot_crau_kennlinie <-
   facet_wrap(
     facets = vars(chip)
   )
+```
 
+```{r purl = FALSE}
+plot_crau_kennlinie
+```
 
-
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 plot_crau_blind <-
   data_crau |>
   ungroup() |>
@@ -124,11 +146,15 @@ plot_crau_blind <-
     x = "Spannung in Volt",
     y = "Stromstärke in µA"
   )
+```
 
+```{r purl = FALSE}
+plot_crau_blind
+```
 
+## Save data
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------------
+```{r}
 fs::dir_create(
   path = c(
     here::here("data/doe"),
@@ -147,4 +173,4 @@ save(
   plot_crau_blind,
   file = here::here("data/gatebreak/gb_mock_plots.rda")
 )
-
+```
