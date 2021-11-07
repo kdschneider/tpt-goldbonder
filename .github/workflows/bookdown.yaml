@@ -36,11 +36,8 @@ jobs:
           key: bookdown-${{ hashFiles('**/*Rmd') }}
           restore-keys: bookdown-
       
-      - name: Run scripts
-        run: Rscript R/run_scripts.R
-
       - name: Build site
-        run: Rscript R/render_book.R
+        run: Rscript _build.R
 
       - name: Deploy to GitHub pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
