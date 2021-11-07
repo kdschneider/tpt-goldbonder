@@ -27,21 +27,21 @@ params:
 
 Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).
 
-- Downloads 
-  - pdf [Download](./downloads/tpt_goldbonder_bericht.pdf)
+## Downloads {-}
+
+|                   |           |                                                                                                 |
+|-------------------|-----------|-------------------------------------------------------------------------------------------------|
+| **Bericht**       |           | [PDF](./downloads/tpt_goldbonder_bericht.pdf), [HTML](./downloads/tpt_goldbonder_bericht.html)  |
+| **Auswertungen**  | Gatebreak | [Screening](./downloads/analysis/gb_screening.html), [Mock](./downloads/analysis/gb_mock.html)  |
+|                   | Pulltest  | [Box-Behnken](./downloads/analysis/pt_bbd.html)                                                 |
+| **Sonstiges**     |           | [CSAR Rezept](./downloads/csar.html)                                                            |
 
 ## Quellcode {-}
 
-- Quellcode auf Github [GitHub](https://github.com/kdschneider/tpt-goldbonder)
-- R
-- Bookdown
+Der Quellcode dieses Berichts steht [hier](https://github.com/kdschneider/tpt-goldbonder) zur Verfügung. Die Auswertungen wurden in `R` geschrieben. Der Bericht selbst wurde mit dem `R` Paket `{bookdown}` erstellt. 
 
-## Daten {-}
+## Bericht lokal rendern {-}
 
-```{r echo = FALSE, comment=""}
-fs::dir_tree(path = here::here("data"))
-```
-
-- download
+Um den kompletten Bericht lokal zu rendern, kann das R-Script `_build.R` ausgeführt werden. Die benötigten Pakete können über das R-Paket `{renv}` mit dem Befehl `renv::hydrate()` installiert werden. Dieser installiert alle in der Datei `renv.lock` aufgeführten Pakete in der korrekten Version. 
 
 `r if (params$online == FALSE) '-->'`
