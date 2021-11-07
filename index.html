@@ -65,44 +65,46 @@
 <h1>Index<a class="anchor" aria-label="anchor" href="#index"><i class="fas fa-link"></i></a>
 </h1>
 <p>Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).</p>
-<ul>
-<li>Downloads
-<ul>
-<li>pdf <a href="./downloads/tpt_goldbonder_bericht.pdf">Download</a>
-</li>
-</ul>
-</li>
-</ul>
+<div id="downloads" class="section level2 unnumbered">
+<h2>Downloads<a class="anchor" aria-label="anchor" href="#downloads"><i class="fas fa-link"></i></a>
+</h2>
+<div class="inline-table"><table class="table table-sm"><tbody>
+<tr class="odd">
+<td><strong>Bericht</strong></td>
+<td></td>
+<td>
+<a href="./downloads/tpt_goldbonder_bericht.pdf">PDF</a>, <a href="./downloads/tpt_goldbonder_bericht.html">HTML</a>
+</td>
+</tr>
+<tr class="even">
+<td><strong>Auswertungen</strong></td>
+<td>Gatebreak</td>
+<td>
+<a href="./downloads/analysis/gb_screening.html">Screening</a>, <a href="./downloads/analysis/gb_mock.html">Mock</a>
+</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Pulltest</td>
+<td><a href="./downloads/analysis/pt_bbd.html">Box-Behnken</a></td>
+</tr>
+<tr class="even">
+<td><strong>Sonstiges</strong></td>
+<td></td>
+<td><a href="./downloads/csar.html">CSAR Rezept</a></td>
+</tr>
+</tbody></table></div>
+</div>
 <div id="quellcode" class="section level2 unnumbered">
 <h2>Quellcode<a class="anchor" aria-label="anchor" href="#quellcode"><i class="fas fa-link"></i></a>
 </h2>
-<ul>
-<li>Quellcode auf Github <a href="https://github.com/kdschneider/tpt-goldbonder">GitHub</a>
-</li>
-<li>R</li>
-<li>Bookdown</li>
-</ul>
+<p>Der Quellcode dieses Berichts steht <a href="https://github.com/kdschneider/tpt-goldbonder">hier</a> zur Verfügung. Die Auswertungen wurden in <code>R</code> geschrieben. Der Bericht selbst wurde mit dem <code>R</code> Paket <a href="https://github.com/rstudio/bookdown">bookdown</a> erstellt.</p>
 </div>
-<div id="daten" class="section level2 unnumbered">
-<h2>Daten<a class="anchor" aria-label="anchor" href="#daten"><i class="fas fa-link"></i></a>
+<div id="bericht-lokal-rendern" class="section level2 unnumbered">
+<h2>Bericht lokal rendern<a class="anchor" aria-label="anchor" href="#bericht-lokal-rendern"><i class="fas fa-link"></i></a>
 </h2>
-<pre><code>/Users/runner/work/tpt-goldbonder/tpt-goldbonder/data
-├── doe
-│   ├── gb-screening.csv
-│   └── pt_bbd.csv
-├── gatebreak
-│   ├── gb-screening.rds
-│   ├── gb_mock.rds
-│   ├── gb_mock_plots.rda
-│   ├── gb_screening_plots.rda
-│   └── gb_screening_regression.rda
-└── pulltest
-    ├── pt_bbd.rda
-    ├── pt_bbd_plots.rda
-    └── pt_bbd_regression.rda</code></pre>
-<ul>
-<li>download</li>
-</ul>
+<p>Um den kompletten Bericht lokal zu rendern, kann das R-Script <code>_build.R</code> ausgeführt werden. Die benötigten Pakete können über das R-Paket <a href="https://rstudio.github.io/renv/">renv</a> mit dem Befehl <code><a href="https://rstudio.github.io/renv/reference/hydrate.html">renv::hydrate()</a></code> installiert werden. Dieser installiert alle in der Datei <code>renv.lock</code> aufgeführten Pakete in der korrekten Version.</p>
+
 </div>
 </div>
   <div class="chapter-nav">
@@ -112,8 +114,9 @@
     <nav id="toc" data-toggle="toc" aria-label="In diesem Kapitel"><h2>In diesem Kapitel</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#index">Index</a></li>
+<li><a class="nav-link" href="#downloads">Downloads</a></li>
 <li><a class="nav-link" href="#quellcode">Quellcode</a></li>
-<li><a class="nav-link" href="#daten">Daten</a></li>
+<li><a class="nav-link" href="#bericht-lokal-rendern">Bericht lokal rendern</a></li>
 </ul>
 
       <div class="book-extra">
