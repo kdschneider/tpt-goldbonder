@@ -146,6 +146,13 @@ plot_bbd_effect <-
 
 
 ## output ----
+fs::dir_create(
+  path = c(
+    here::here("data/doe"),
+    here::here("data/pulltest")
+  ),
+  recurse = TRUE
+)
 
 save(
   data_bbd,

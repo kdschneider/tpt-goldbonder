@@ -101,13 +101,20 @@ plot_crau_blind <-
 
 
 ## output ----
-### data
+
+fs::dir_create(
+  path = c(
+    here::here("data/doe"),
+    here::here("data/gatebreak")
+  ),
+  recurse = TRUE
+)
+
 write_rds(
   x = data_mock,
   file = here::here("data/gatebreak/gb_mock.rds")
 )
 
-### plots
 save(
   plot_crau_kennlinie,
   plot_crau_blind,

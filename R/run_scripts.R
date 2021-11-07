@@ -5,6 +5,8 @@
 # creates all data for the report. #
 ####################################
 
+fs::dir_create(here::here("data"))
+
 ## clean data folder ----
 fs::dir_ls(
     path = here::here("data"),

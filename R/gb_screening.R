@@ -315,6 +315,13 @@ remove(n, new_data, predict_data, p1, p2, p3)
 
 
 # output data ----
+fs::dir_create(
+  path = c(
+    here::here("data/doe"),
+    here::here("data/gatebreak")
+  ),
+  recurse = TRUE
+)
 
 write_csv(
   x = design_screening,
