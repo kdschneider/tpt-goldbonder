@@ -2,14 +2,14 @@
 
 ## get file paths
 files_path <- fs::dir_ls(
-  path = here::here("Rmd"),
+  path = here::here("Rmd/analysis"),
   glob = "*.Rmd"
 )
 
 ## get file names
 files_name <-
   list.files(
-    path = here::here("Rmd"),
+    path = here::here("Rmd/analysis"),
   ) |>
     fs::path_filter(glob = "*.Rmd") |>
     fs::path_ext_remove()
