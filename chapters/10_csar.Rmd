@@ -1,0 +1,66 @@
+# (APPENDIX) Anhang {- #appendix}
+
+# CSAR 9% Rezept {#appendix-csar}
+
+**Datenblätter:**
+
+- [CSAR 62](https://www.allresist.de/wp-content/uploads/2020/03/AR-P6200_CSAR62_Deutsch_Allresist_Produktinformation.pdf)
+- [AR 600-546](https://www.allresist.de/wp-content/uploads/2020/03/AR600-50-51-55-56-546-548-549_deutsch_Allresist_Produktinformation.pdf)
+- [AR 600-71](https://www.allresist.de/wp-content/uploads/2020/03/AR600-70-71_300-70-72-73-76_deutsch_Allresist_Produktinformation.pdf)
+
+## Reinigung {-}
+
+**Waschen**
+
+|           |                                     |
+|-----------|-------------------------------------|
+| Schritt 1 | 30 s Aceton in Ultraschallbad       |
+| Schritt 2 | In Aceton schwenken                 |
+| Schritt 3 | In Isopropanol schwenken            |
+| Schritt 4 | Mit Stickstoff trocknen             |
+
+**Plasmaverascher (alt)**
+
+| Leistung  | Dauer       |
+|-----------|-------------|
+| 57%       | 5 Minuten   |
+
+
+## Spin-Coating {-}
+
+**Parameter**
+
+| Schritt   | RPM  | Ramp | Dauer | Tropfen |
+|:---------:|------|------|-------|---------|
+| 1         | -/-  | -/-  | -/-   | 1-2     |
+| 2         | 4000 | 800  | 5     | -/-     |
+| 3         | 4000 | -/-  | 20    | 1-2     |
+| 4         | 6000 | 800  | 30    | -/-     |
+
+**Soft-Bake (Hot-Plate)**
+
+|   Temperatur  | Dauer |
+|:-------------:|:-----:|
+|     150 °C    | 60s   |
+
+## E-Lithographie (LeoREM) {-}
+
+**Dosis**
+
+Ab einer Dosis von ca. 50 μC/cm^2^ führt bei dünner Beschichtung eine Erhöhung der Dosis zu keinem feststellbraren Unterschied. Das [Datenblatt](https://www.allresist.de/wp-content/uploads/2020/03/AR-P6200_CSAR62_Deutsch_Allresist_Produktinformation.pdf) empfiehlt 65 μC/cm^2^.
+
+**Entwickeln**
+
+|           |                                                       |
+|-----------|-------------------------------------------------------|
+| Schritt 1 | 60s in Entwickler (AR 600-546)                        |
+| Schritt 2 | 60s in Isopropanol schwenken                          |
+| Schritt 3 | Mit Isopropanol spülen und mit Stickstoff trocknen    |
+
+## Lift-Off {-}
+
+|           |                                                 |
+|-----------|-------------------------------------------------|
+| Schritt 1 | 10 min in Remover (AR 600-71, Raumtemperatur)   |
+| Schritt 2 | Lift-Off                                        |
+| Schritt 3 | Mit Isopropanol spülen                          |

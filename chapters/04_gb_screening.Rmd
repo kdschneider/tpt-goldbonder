@@ -39,7 +39,7 @@ data_screening |>
   )
 ```
 
-```{r recommended-values, echo = FALSE, fig.cap = "Empfohlene Werte aus dem Handbuch des tpt HB-10 Bonders für Golddraht.", out.width="60%"}
+```{r recommended-values, fig.cap = "Empfohlene Werte aus dem Handbuch des tpt HB-10 Bonders für Golddraht.", out.width="60%"}
 knitr::include_graphics(
   here::here("static/img/tpt_recommended.png")
 )
@@ -53,7 +53,7 @@ Es wurden pro Levelkombination der Schichtdicke von Gold und Chrom jeweils zwei 
 
 Mit dem Keysight B1500A wurde an jedem Bond einzeln ein Spannungssweep von 0 bis 100 Volt angelegt. Nach jeder Messung wurde der gemessene Bond mikroskopisch begutachtet. Hierbei hat sich gezeigt, dass es teilweise zu Gate-Durchbrüchen kam, die rein an den Messdaten nicht erkannt worden wären.
 
-```{r screening-litho, echo = FALSE, fig.cap="Verwendete Probengeometrie zum Messen von Gate-Durchbrüchen.", out.width="75%"}
+```{r screening-litho, fig.cap="Verwendete Probengeometrie zum Messen von Gate-Durchbrüchen.", out.width="75%"}
 knitr::include_graphics(
   here::here("static/img/gatebreak/gb-litho-check.png")
 )
@@ -73,7 +73,7 @@ plot_screening_kennlinie
 
 Abbildung \@ref(fig:screening-plot-effect) zeigt die Effekt-Plots der untersuchten Einflussgrößen. In diesem wurden die Mittelwerte der Messungen der einzelnen Level gebildet. Die Steigung des Plots signalisiert die größe des Effekts einer Einflussgröße.
 
-```{r screening-plot-effect, echo = FALSE, fig.height = 4.5, fig.cap = "Effektplot der untersuchten Faktoren. Die Steigung ist ein Maß für die Stärke eines Effekts."}
+```{r screening-plot-effect, fig.height = 4.5, fig.cap = "Effektplot der untersuchten Faktoren. Die Steigung ist ein Maß für die Stärke eines Effekts."}
 plot_screening_effect
 ```
 

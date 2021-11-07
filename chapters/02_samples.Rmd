@@ -1,6 +1,6 @@
 # Probenherstellung {#sample-prep}
 
-```{r, echo = FALSE}
+```{r}
 library(tidyverse)
 ```
 
@@ -21,7 +21,7 @@ Um organische Verunreinigungen zu entfernen, wurden die Proben im Anschluss zus�
 
 Für die Lithographie wurde der positive e-Resist Lack *CSAR* der Firma *Allresist* verwendet. Um beim Spin-Coating eine möglichst gleichmäßige Schichtdicke zu erreichen wurden unterschiedliche Kombinationen der relevanten Parameter varriiert. Dies resultierte in den Parameterwerten aus Tabelle \@ref(tab:prep-spin), welche zuverlässig zu guten Ergebnissen führten.
 
-```{r prep-spin, echo = FALSE}
+```{r prep-spin}
 knitr::kable(
   tribble(
     ~"Schritt", ~"RPM", ~"Ramp", ~"Dauer", ~"Tropfen",
@@ -61,4 +61,3 @@ Das [Datenblatt](https://www.allresist.de/wp-content/uploads/2020/03/AR-P6200_CS
 
 Die Chips wurden mit *Kleber (?)* auf einen Chipträger geklebt. Zum Aushärten des Klebers, wurden sie anschließend für 45 Minuten bei 150 Grad Celsius auf eine Heizplatte gelegt. 
 
-\clearpage

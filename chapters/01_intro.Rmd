@@ -2,7 +2,7 @@
 
 Die neuen Wire-Bonder der Firma *tpt* führen regelmäßig zu einer Beschädigung der isolierenden SiO~2~-Schicht von Proben auf Si/SiO~2~. Durch Anlegen einer Spannung an das Backgate (bulk Si) kann es durch diese Beschädigung zu einem Durchschlag (Gate-Durchbruch) kommen. Der Einfluss des Bondens mit dem *tpt* Aluminium-Bonder auf die Wahrscheinlichkeit eines Gate-Durchbruchs wurde in meiner Bachelorarbeit untersucht. Für eine genaue Untersuchung des Verhaltens am *tpt* Gold-Bonder blieb jedoch keine Zeit.
 
-```{r gatebreak-image, echo = FALSE, out.width = "70%", fig.cap="Gate-Druchbruch an einem Al/Au-Bond aus meiner Bachelorarbeit (tpt Al-Bonder)."}
+```{r gatebreak-image, out.width = "70%", fig.cap="Gate-Druchbruch an einem Al/Au-Bond aus meiner Bachelorarbeit (tpt Al-Bonder)."}
 knitr::include_graphics(here::here("static/img/gatebreak/gb-example.jpg"))
 ```
 

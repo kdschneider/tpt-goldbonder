@@ -10,7 +10,7 @@ Spannungssweeps bis 100V wurden an einem [Keysight B1500A](https://www.keysight.
 
 Am Keysight B1500A nicht möglich, Spannungen von über 100V anzulegen.
 
-```{r keysight-setup, echo = FALSE, out.width = "70%", fig.cap = "Messaufbau am Keysight B1500A."}
+```{r keysight-setup, out.width = "70%", fig.cap = "Messaufbau am Keysight B1500A."}
 knitr::include_graphics(here::here("static/img/gatebreak/gb-setup-keysight.jpg"))
 ```
 
@@ -18,7 +18,7 @@ knitr::include_graphics(here::here("static/img/gatebreak/gb-setup-keysight.jpg")
 
 Für Messungen bis 200 Volt wurde ein [Keithley 2450 SourceMeter](https://www.datatec.de/keithley-2450) verwendet. Dieses erlaubt es direkt am Gerät einen Spannungssweep bis 200 Volt zu erstellen. Schließt man das Keithley 2450 über Ethernet an das LAN Netzwerk der Uni an, kann man das Gerät über ein Webinterface fernsteuern. Hierfür muss die IP-Adresse des Keithleys abgelesen werden (*HOME* $\rightarrow$ *COMMUNICATION* $\rightarrow$ *LAN*). Dieses Webinterface ist relativ rudimentär, erlaubt es aber die Messdaten direkt aus dem Buffer zu speichern. 
 
-```{r keythley-setup, echo = FALSE, out.width = "70%", fig.cap = "Messaufbau am Keithley 2450. (Bild austauschen. Falsch verkabelt...)"}
+```{r keythley-setup, out.width = "70%", fig.cap = "Messaufbau am Keithley 2450. (Bild austauschen. Falsch verkabelt...)"}
 knitr::include_graphics(
   here::here("static/img/gatebreak/gb-setup-keithley.jpg")
 )

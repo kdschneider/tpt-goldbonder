@@ -1,0 +1,67 @@
+# Optimierung der Haltekraft {#pt-optimal}
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+load(here::here("data/pulltest/pt_bbd.rda"))
+load(here::here("data/pulltest/pt_bbd_regression.rda"))
+load(here::here("data/pulltest/pt_bbd_plots.rda"))
+```
+
+Es soll die maximale Haltekraft eines Bonds durch Pull-Tests und Methoden der statistischen Versuchsplanung optimiert werden.
+
+## Versuchsplanung {#pt-doe}
+
+Da nach optimale Parameterwerte gesucht werden, ist ein vollständiger Versuchsplan mit zwei Leveln pro Faktor nicht mehr ausreichend. Um mittels eines quadratischen Modells optimale Parameterwerte zu finden, werden mindestens drei Level pro Faktor benötigt. Der Arbeitsaufwand kann dabei durch ein *Central Composite Design* (CCD) bzw. ein *Box-Behnken-Design* (BBD) minimiert werden. 
+
+Ich habe mich hier für ein BBD entschieden, da dieses keine extreme Levelkombinationen (alles hoch/alles niedrig) vermeidet. Diese Levelkombinationen sind weniger interessant, da bekannt ist, dass diese nur selten zu brauchbaren Bonds führen. Zudem wird dass Bondtool geschont, da keine exzessiven Parameterwerte am Bonder verwendet werden müssen. 
+
+Die Parameter von Interesse sind: 
+  
+  - Ultraschallleistung
+  - Bondzeit
+  - Bondkraft
+  - Schichtdicke: Gold
+  - Schichtdicke: Chrom
+  - Tempereratur des Probenhalters
+
+## Durchführung {#pt-bbd-methods}
+
+Es wurden 9x2 Proben flächendeckend mit Cr/Au bedampft und auf Chipträger geklebt. Die Chips wurden anschließend anhand des Versuchsplans mit Bonds versehen, deren Qualität durch einen destruktiven Pull-Test getestet wurden. 
+
+## Auswertung
+
+Abbildung \@ref(fig:pt-bbd1-index) zeigt die gemessene maximale Zugkraft gegen die Versuchsreihenfolge aufgetragen. Die horizontalen Linien signalisieren den Mittelwert der Messungen mit einer Einstellung des Bondtools. Dies zeigt, dass das Justieren des Bondtools einen großen Einfluss auf die Qualität der Bonds hatte. Besonders nach der ersten Justierung kam es zu einem starken Abfall der mittleren Haltekraft. 
+
+```{r pt-bbd1-index, fig.cap="Plot der Versuchsreihenfolge. Im Idealfall sollte kein Muster zu erkennen sein, allerdings hat eine Justierung des Bondtools eindeutig einen Einfluss auf die Qualität der Bonds."} 
+plot_bbd_runorder
+```
+
+```{r}
+plot_bbd_effect
+```
+
+### Regression
+
+```{r}
+model_bbd |> 
+  glance() |> 
+  knitr::kable()
+```
+
+```{r}
+model_bbd |> 
+  tidy() |>
+  drop_na() |> 
+  knitr::kable()
+```
+
+<!-- ## Experiment 2 -->
+
+<!-- Da die Daten des ersten Experiments durch das justieren des Bondtools sehr stark beeinflusst wurden, muss das Experiment wiederholt werden. Es ist jedoch nicht möglich/sinnvoll wieder 10 Messungen pro Versuch zu machen, da der Zeit- und Materialaufwand bei Experiment 1 enorm groß war. Stattdessen wird jeder Versuch nur einmal wiederholt. Dadurch kann sichergestellt werden, dass die Messungen innerhalb eines Tages und ohne Veränderungen am Bondtool durchgeführt werden können. -->
+
+<!-- ### Versuchsplanung -->
+
+<!-- Wie in Experiment 1 -->

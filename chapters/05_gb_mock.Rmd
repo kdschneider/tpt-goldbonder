@@ -1,4 +1,4 @@
-# Test der optimalen Parameterwerte {#gb-test}
+# Test der optimalen Parameterwerte {#gb-mock}
 
 ```{r}
 library(tidyverse)
@@ -15,7 +15,7 @@ load(here::here("data/gatebreak/gb_mock_plots.rda"))
 
 Um die Ergebnisse des Screening Experiments zu überprüfen, wurden mehere Chips mit Cr/Au Bondpads versehen. Diese sind kurzgeschlossen (siehe Abbildung \@ref(fig:mock-image)), und erlauben es so, mehrere Bonds auf einmal zu prüfen. Dies soll eine reale Anwendung simulieren, bei der mehrere Kontakte an einer Probe benötigt werden. 
 
-```{r mock-image, echo = FALSE, fig.cap="Lithographie-Muster zum Testen der optimalen Parameterwerte."}
+```{r mock-image, fig.cap="Lithographie-Muster zum Testen der optimalen Parameterwerte."}
 knitr::include_graphics(
   here::here("static/img/gatebreak/gb-litho-mock.png")
 )
@@ -23,7 +23,7 @@ knitr::include_graphics(
 
 ### Durchführung
 
-Für die Messung wurden alle Bondpads einer Probe mit Bonds versehen. Hierbei wurde ein Bond wiederholt, falls er fehlgeschlagen ist. Hierbei haben `r 8 + 9 + 8 + 8` von `r 9 + 9 + 8 + 9` Bonds gehalten.
+Für die Messung wurden alle Bondpads einer Probe mit Bonds versehen. Hierbei wurde ein Bond wiederholt, falls er fehlgeschlagen ist. Hierbei haben 33 von 35 Bonds gehalten.
 
 Die verwendeten Parameterwerte waren: 
 

@@ -1,0 +1,5 @@
+# Fazit {#pt-conclusion}
+
+Der Effekt der Bondparameter und Schichtdicken der Bondpads ist im gemessenen Bereich klein, im Vergleich zum Einfluss des Bondtools. So haben Änderungen am Bondtool zu einer starken Verfälschung der Ergebnisse geführt. 
+
+Es wäre sinnvoll, ein RSM-Experiment mit einem neuen, unbenutzten Bondtool zu wiederholen. So könnte der Einfluss der Bondparameter besser untersucht werden. Um den Versuchsaufwand zu reduzieren, könnte hierbei eine feste Temperatur von 100 °C verwendet werden. 
