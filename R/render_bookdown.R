@@ -5,7 +5,7 @@ if (fs::dir_exists(here::here("_book")) == TRUE) {
   fs::dir_delete(here::here("_book"))
 }
 
-## render bs4_book
+## render bs4_book ----
 bookdown::render_book(
   input = here::here(""),
   output_format = "bookdown::bs4_book",
@@ -16,7 +16,7 @@ bookdown::render_book(
   )
 )
 
-## render single page html
+## render single page html ----
 bookdown::render_book(
   input = here::here(""),
   output_format = "bookdown::html_document2",
@@ -26,6 +26,17 @@ bookdown::render_book(
     "show_code" = FALSE
   )
 )
+
+if (fs::dir_exists(here::here("_book/downloads")) == FALSE) {
+  fs::dir_create(here::here("_book/downloads"))
+}
+
+if (fs::file_exists(here::here("tpt_goldbonder_bericht.html")) == TRUE) {
+  fs::file_move(
+    path = here::here("tpt_goldbonder_bericht.html"),
+    new_path = here::here("_book/downloads/tpt_goldbonder_bericht.html")
+  )
+}
 
 ## render pdf
 bookdown::render_book(
