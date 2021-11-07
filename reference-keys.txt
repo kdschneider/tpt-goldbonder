@@ -20,7 +20,6 @@ fig:pulltester-tip
 fig:pt-bbd1-index
 intro
 sample-prep
-gatebreak
 setup
 keysight
 keithley
@@ -35,7 +34,6 @@ durchführung-1
 auswertung-1
 crpdau
 conclusion
-pt
 pt-pulltester
 pt-optimal
 pt-doe

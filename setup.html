@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>4 Messaufbau | Prozessoptimierung am tpt Gold-Bonder</title>
+<title>3 Messaufbau | Prozessoptimierung am tpt Gold-Bonder</title>
 <meta name="author" content="Konstantin Schneider">
 <meta name="description" content="Es wurden Gate-Durchbrüche durch einen Spannungssweep von 0 bis 100V, bzw. 0 bis 200V, provoziert. Hierfür wurden zwei unterschiedliche Messaufbauten verwendet: Ein Keysight B1500A Device Tester...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="4 Messaufbau | Prozessoptimierung am tpt Gold-Bonder">
+<meta property="og:title" content="3 Messaufbau | Prozessoptimierung am tpt Gold-Bonder">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://kdschneider.github.io/tpt-goldbonder/setup.html">
 <meta property="og:image" content="https://kdschneider.github.io/tpt-goldbonder/static/img/title_image.jpg">
 <meta property="og:description" content="Es wurden Gate-Durchbrüche durch einen Spannungssweep von 0 bis 100V, bzw. 0 bis 200V, provoziert. Hierfür wurden zwei unterschiedliche Messaufbauten verwendet: Ein Keysight B1500A Device Tester...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="4 Messaufbau | Prozessoptimierung am tpt Gold-Bonder">
+<meta name="twitter:title" content="3 Messaufbau | Prozessoptimierung am tpt Gold-Bonder">
 <meta name="twitter:description" content="Es wurden Gate-Durchbrüche durch einen Spannungssweep von 0 bis 100V, bzw. 0 bis 200V, provoziert. Hierfür wurden zwei unterschiedliche Messaufbauten verwendet: Ein Keysight B1500A Device Tester...">
 <meta name="twitter:image" content="https://kdschneider.github.io/tpt-goldbonder/static/img/title_image.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,14 +46,14 @@
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Einleitung</a></li>
 <li><a class="" href="sample-prep.html"><span class="header-section-number">2</span> Probenherstellung</a></li>
 <li class="book-part">Gatedurchbrüche</li>
-<li><a class="active" href="setup.html"><span class="header-section-number">4</span> Messaufbau</a></li>
-<li><a class="" href="gb-screening.html"><span class="header-section-number">5</span> Screening Experiment</a></li>
-<li><a class="" href="gb-mock.html"><span class="header-section-number">6</span> Test der optimalen Parameterwerte</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">7</span> Fazit</a></li>
+<li><a class="active" href="setup.html"><span class="header-section-number">3</span> Messaufbau</a></li>
+<li><a class="" href="gb-screening.html"><span class="header-section-number">4</span> Screening Experiment</a></li>
+<li><a class="" href="gb-mock.html"><span class="header-section-number">5</span> Test der optimalen Parameterwerte</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">6</span> Fazit</a></li>
 <li class="book-part">Pull-Test</li>
-<li><a class="" href="pt-pulltester.html"><span class="header-section-number">9</span> Pulltester</a></li>
-<li><a class="" href="pt-optimal.html"><span class="header-section-number">10</span> Optimierung der Haltekraft</a></li>
-<li><a class="" href="pt-conclusion.html"><span class="header-section-number">11</span> Fazit</a></li>
+<li><a class="" href="pt-pulltester.html"><span class="header-section-number">7</span> Pulltester</a></li>
+<li><a class="" href="pt-optimal.html"><span class="header-section-number">8</span> Optimierung der Haltekraft</a></li>
+<li><a class="" href="pt-conclusion.html"><span class="header-section-number">9</span> Fazit</a></li>
 <li class="book-part">Anhang</li>
 <li><a class="" href="appendix-csar.html"><span class="header-section-number">A</span> CSAR 9% Rezept</a></li>
 <li><a class="" href="code-ausf%C3%BChren-bericht-rendern.html"><span class="header-section-number">B</span> Code ausführen &amp; Bericht rendern</a></li>
@@ -66,12 +66,12 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="setup" class="section level1">
 <h1>
-<span class="header-section-number">4</span> Messaufbau<a class="anchor" aria-label="anchor" href="#setup"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3</span> Messaufbau<a class="anchor" aria-label="anchor" href="#setup"><i class="fas fa-link"></i></a>
 </h1>
 <p>Es wurden Gate-Durchbrüche durch einen Spannungssweep von 0 bis 100V, bzw. 0 bis 200V, provoziert. Hierfür wurden zwei unterschiedliche Messaufbauten verwendet: Ein Keysight B1500A Device Tester für Messungen bist 100V, und ein Keithley 2450 SourceMeter für Messungen bis 200V.</p>
 <div id="keysight" class="section level2">
 <h2>
-<span class="header-section-number">4.1</span> Keysight B1500A (100V)<a class="anchor" aria-label="anchor" href="#keysight"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.1</span> Keysight B1500A (100V)<a class="anchor" aria-label="anchor" href="#keysight"><i class="fas fa-link"></i></a>
 </h2>
 <p>Spannungssweeps bis 100V wurden an einem <a href="https://www.keysight.com/de/de/products/parameter-device-analyzers-curve-tracer/precision-current-voltage-analyzers/b1500a-semiconductor-device-parameter-analyzer.html">Keysight B1500A</a> durchgeführt. Hierfür wurde die Spannung über SMU1-Force an Kontakt 12 der Proben gelegt, während die zu testenden Bonds auf Masse gelegt wurden.</p>
 <p>Am Keysight B1500A nicht möglich, Spannungen von über 100V anzulegen.</p>
@@ -80,13 +80,13 @@
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:keysight-setup"></span>
 <img src="static/img/gatebreak/gb-setup-keysight.jpg" alt="Messaufbau am Keysight B1500A." width="70%"><p class="caption">
-Abbildung 4.1: Messaufbau am Keysight B1500A.
+Abbildung 3.1: Messaufbau am Keysight B1500A.
 </p>
 </div>
 </div>
 <div id="keithley" class="section level2">
 <h2>
-<span class="header-section-number">4.2</span> Keithley Sourcemeter 2450 (200V)<a class="anchor" aria-label="anchor" href="#keithley"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2</span> Keithley Sourcemeter 2450 (200V)<a class="anchor" aria-label="anchor" href="#keithley"><i class="fas fa-link"></i></a>
 </h2>
 <p>Für Messungen bis 200 Volt wurde ein <a href="https://www.datatec.de/keithley-2450">Keithley 2450 SourceMeter</a> verwendet. Dieses erlaubt es direkt am Gerät einen Spannungssweep bis 200 Volt zu erstellen. Schließt man das Keithley 2450 über Ethernet an das LAN Netzwerk der Uni an, kann man das Gerät über ein Webinterface fernsteuern. Hierfür muss die IP-Adresse des Keithleys abgelesen werden (<em>HOME</em> <span class="math inline">\(\rightarrow\)</span> <em>COMMUNICATION</em> <span class="math inline">\(\rightarrow\)</span> <em>LAN</em>). Dieses Webinterface ist relativ rudimentär, erlaubt es aber die Messdaten direkt aus dem Buffer zu speichern.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -96,7 +96,7 @@ Abbildung 4.1: Messaufbau am Keysight B1500A.
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:keythley-setup"></span>
 <img src="static/img/gatebreak/gb-setup-keithley.jpg" alt="Messaufbau am Keithley 2450. (Bild austauschen. Falsch verkabelt...)" width="70%"><p class="caption">
-Abbildung 4.2: Messaufbau am Keithley 2450. (Bild austauschen. Falsch verkabelt…)
+Abbildung 3.2: Messaufbau am Keithley 2450. (Bild austauschen. Falsch verkabelt…)
 </p>
 </div>
 <p>Für die Messungen der Kennlinien wurde die Spannung an Kontakt 12 der Chipträger angelegt. Die Bonds wurden über einen ESD-Stecker an der Netzsteckdose auf Masse gelegt.</p>
@@ -105,13 +105,13 @@ Abbildung 4.2: Messaufbau am Keithley 2450. (Bild austauschen. Falsch verkabelt�
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="sample-prep.html"><span class="header-section-number">2</span> Probenherstellung</a></div>
-<div class="next"><a href="gb-screening.html"><span class="header-section-number">5</span> Screening Experiment</a></div>
+<div class="next"><a href="gb-screening.html"><span class="header-section-number">4</span> Screening Experiment</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="In diesem Kapitel"><h2>In diesem Kapitel</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#setup"><span class="header-section-number">4</span> Messaufbau</a></li>
-<li><a class="nav-link" href="#keysight"><span class="header-section-number">4.1</span> Keysight B1500A (100V)</a></li>
-<li><a class="nav-link" href="#keithley"><span class="header-section-number">4.2</span> Keithley Sourcemeter 2450 (200V)</a></li>
+<li><a class="nav-link" href="#setup"><span class="header-section-number">3</span> Messaufbau</a></li>
+<li><a class="nav-link" href="#keysight"><span class="header-section-number">3.1</span> Keysight B1500A (100V)</a></li>
+<li><a class="nav-link" href="#keithley"><span class="header-section-number">3.2</span> Keithley Sourcemeter 2450 (200V)</a></li>
 </ul>
 
       <div class="book-extra">

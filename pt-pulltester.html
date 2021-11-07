@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>9 Pulltester | Prozessoptimierung am tpt Gold-Bonder</title>
+<title>7 Pulltester | Prozessoptimierung am tpt Gold-Bonder</title>
 <meta name="author" content="Konstantin Schneider">
 <meta name="description" content="Mit einem Pull-Test kann die Qualität eines Bonds mechanisch geprüft werden. Hierfür wird ein feiner Haken unter den Loop eines Bonds geführt und langsam angehoben. Die Zugkraft, die auf den Draht...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="9 Pulltester | Prozessoptimierung am tpt Gold-Bonder">
+<meta property="og:title" content="7 Pulltester | Prozessoptimierung am tpt Gold-Bonder">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://kdschneider.github.io/tpt-goldbonder/pt-pulltester.html">
 <meta property="og:image" content="https://kdschneider.github.io/tpt-goldbonder/static/img/title_image.jpg">
 <meta property="og:description" content="Mit einem Pull-Test kann die Qualität eines Bonds mechanisch geprüft werden. Hierfür wird ein feiner Haken unter den Loop eines Bonds geführt und langsam angehoben. Die Zugkraft, die auf den Draht...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="9 Pulltester | Prozessoptimierung am tpt Gold-Bonder">
+<meta name="twitter:title" content="7 Pulltester | Prozessoptimierung am tpt Gold-Bonder">
 <meta name="twitter:description" content="Mit einem Pull-Test kann die Qualität eines Bonds mechanisch geprüft werden. Hierfür wird ein feiner Haken unter den Loop eines Bonds geführt und langsam angehoben. Die Zugkraft, die auf den Draht...">
 <meta name="twitter:image" content="https://kdschneider.github.io/tpt-goldbonder/static/img/title_image.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,14 +46,14 @@
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Einleitung</a></li>
 <li><a class="" href="sample-prep.html"><span class="header-section-number">2</span> Probenherstellung</a></li>
 <li class="book-part">Gatedurchbrüche</li>
-<li><a class="" href="setup.html"><span class="header-section-number">4</span> Messaufbau</a></li>
-<li><a class="" href="gb-screening.html"><span class="header-section-number">5</span> Screening Experiment</a></li>
-<li><a class="" href="gb-mock.html"><span class="header-section-number">6</span> Test der optimalen Parameterwerte</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">7</span> Fazit</a></li>
+<li><a class="" href="setup.html"><span class="header-section-number">3</span> Messaufbau</a></li>
+<li><a class="" href="gb-screening.html"><span class="header-section-number">4</span> Screening Experiment</a></li>
+<li><a class="" href="gb-mock.html"><span class="header-section-number">5</span> Test der optimalen Parameterwerte</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">6</span> Fazit</a></li>
 <li class="book-part">Pull-Test</li>
-<li><a class="active" href="pt-pulltester.html"><span class="header-section-number">9</span> Pulltester</a></li>
-<li><a class="" href="pt-optimal.html"><span class="header-section-number">10</span> Optimierung der Haltekraft</a></li>
-<li><a class="" href="pt-conclusion.html"><span class="header-section-number">11</span> Fazit</a></li>
+<li><a class="active" href="pt-pulltester.html"><span class="header-section-number">7</span> Pulltester</a></li>
+<li><a class="" href="pt-optimal.html"><span class="header-section-number">8</span> Optimierung der Haltekraft</a></li>
+<li><a class="" href="pt-conclusion.html"><span class="header-section-number">9</span> Fazit</a></li>
 <li class="book-part">Anhang</li>
 <li><a class="" href="appendix-csar.html"><span class="header-section-number">A</span> CSAR 9% Rezept</a></li>
 <li><a class="" href="code-ausf%C3%BChren-bericht-rendern.html"><span class="header-section-number">B</span> Code ausführen &amp; Bericht rendern</a></li>
@@ -66,7 +66,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pt-pulltester" class="section level1">
 <h1>
-<span class="header-section-number">9</span> Pulltester<a class="anchor" aria-label="anchor" href="#pt-pulltester"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7</span> Pulltester<a class="anchor" aria-label="anchor" href="#pt-pulltester"><i class="fas fa-link"></i></a>
 </h1>
 <p>Mit einem Pull-Test kann die Qualität eines Bonds mechanisch geprüft werden. Hierfür wird ein feiner Haken unter den Loop eines Bonds geführt und langsam angehoben. Die Zugkraft, die auf den Draht wirkt, wird dabei gemessen.</p>
 <p>Es wird zwischen zwei Arten des Pull-Tests unterschieden: Beim nicht-destruktiven Pull-Test wird die Zugkraft bis auf einen Maximalwert erhöht. Erhöht man die Zugkraft dagegen, bis entweder der erste oder zweite Bond vom Chip reißt, handelt es sich um einen destruktiven Pull-Test.</p>
@@ -78,7 +78,7 @@
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pt-setup-1"></span>
 <img src="static/img/pulltest/pt-setup-1.jpg" alt="Federwaage des Pulltesters. " width="50%"><p class="caption">
-Abbildung 9.1: Federwaage des Pulltesters.
+Abbildung 7.1: Federwaage des Pulltesters.
 </p>
 </div>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
@@ -88,7 +88,7 @@ Abbildung 9.1: Federwaage des Pulltesters.
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pt-setup-2"></span>
 <img src="static/img/pulltest/pt-setup-2.jpg" alt="Federwaage des Pulltesters. " width="50%"><p class="caption">
-Abbildung 9.2: Federwaage des Pulltesters.
+Abbildung 7.2: Federwaage des Pulltesters.
 </p>
 </div>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
@@ -98,10 +98,10 @@ Abbildung 9.2: Federwaage des Pulltesters.
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pt-setup-3"></span>
 <img src="static/img/pulltest/pt-setup-3.jpg" alt="Federwaage des Pulltesters. " width="50%"><p class="caption">
-Abbildung 9.3: Federwaage des Pulltesters.
+Abbildung 7.3: Federwaage des Pulltesters.
 </p>
 </div>
-<p>Einen geeigneten Haken zu finden, der fein genug ist, um ohne Schwierigkeiten unter den Loop eines Bonds passt, stellte sich als schwierig heraus. Die beste Lösung die wir gefunden haben, ist die Verwendung einer feinen Messspitze. Diese habe ich vorsichtig zurechtgebogen, um einen Haken zu formen (siehe Abbildung <a href="pt-pulltester.html#fig:pulltester-tip">9.4</a>).</p>
+<p>Einen geeigneten Haken zu finden, der fein genug ist, um ohne Schwierigkeiten unter den Loop eines Bonds passt, stellte sich als schwierig heraus. Die beste Lösung die wir gefunden haben, ist die Verwendung einer feinen Messspitze. Diese habe ich vorsichtig zurechtgebogen, um einen Haken zu formen (siehe Abbildung <a href="pt-pulltester.html#fig:pulltester-tip">7.4</a>).</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span>
   <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"static/img/pulltest/pt-tip.jpg"</span><span class="op">)</span>
@@ -109,17 +109,17 @@ Abbildung 9.3: Federwaage des Pulltesters.
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pulltester-tip"></span>
 <img src="static/img/pulltest/pt-tip.jpg" alt="Haken des Pulltesters: Eine vorsichtig vergebogene Messspitze." width="70%"><p class="caption">
-Abbildung 9.4: Haken des Pulltesters: Eine vorsichtig vergebogene Messspitze.
+Abbildung 7.4: Haken des Pulltesters: Eine vorsichtig vergebogene Messspitze.
 </p>
 </div>
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="conclusion.html"><span class="header-section-number">7</span> Fazit</a></div>
-<div class="next"><a href="pt-optimal.html"><span class="header-section-number">10</span> Optimierung der Haltekraft</a></div>
+<div class="prev"><a href="conclusion.html"><span class="header-section-number">6</span> Fazit</a></div>
+<div class="next"><a href="pt-optimal.html"><span class="header-section-number">8</span> Optimierung der Haltekraft</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="In diesem Kapitel"><h2>In diesem Kapitel</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#pt-pulltester"><span class="header-section-number">9</span> Pulltester</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#pt-pulltester"><span class="header-section-number">7</span> Pulltester</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
