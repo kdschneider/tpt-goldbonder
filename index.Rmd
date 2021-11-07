@@ -22,9 +22,26 @@ params:
   show_code: yes
 ---
  
-```{r conditional_print, child='R/index_online.Rmd', eval = params$online}
+`r if (params$online == FALSE) '<!--'`
+# Index {- #index}
+
+Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).
+
+- Downloads 
+  - pdf [Download](./downloads/tpt_goldbonder_bericht.pdf)
+
+## Quellcode {-}
+
+- Quellcode auf Github [GitHub](https://github.com/kdschneider/tpt-goldbonder)
+- R
+- Bookdown
+
+## Daten {-}
+
+```{r echo = FALSE, comment=""}
+fs::dir_tree(path = here::here("data"))
 ```
 
-`r if (params$online == FALSE) '<!--'`
+- download
 
 `r if (params$online == FALSE) '-->'`
