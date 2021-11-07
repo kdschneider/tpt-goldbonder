@@ -8,7 +8,7 @@ name: bookdown
 
 jobs:
   bookdown:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -32,8 +32,12 @@ jobs:
       - name: Build site
         run: Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
 
-      - name: Deploy to GitHub pages 🚀
+      - name: Deploy to GitHub pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: gh-pages
+          branch: bookdown-website
           folder: _book
+          clean: true
+          clean-exclude: |
+            .nojekyll
+
