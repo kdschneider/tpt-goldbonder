@@ -4,7 +4,7 @@
 knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
-  echo = params$show_code
+  echo = params$show_code,
   message = FALSE,
   warning = FALSE,
   results = "markup",
