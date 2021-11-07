@@ -25,6 +25,9 @@ params:
 `r if (params$online == FALSE) '<!--'`
 # Index {- #index}
 
+```{r}
+library(tidyverse)
+```
 Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).
 
 ## Downloads {-}

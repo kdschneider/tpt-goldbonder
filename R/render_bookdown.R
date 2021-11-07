@@ -16,6 +16,17 @@ bookdown::render_book(
   )
 )
 
+## render single page html
+bookdown::render_book(
+  input = here::here(""),
+  output_format = "bookdown::html_document2",
+  output_dir = here::here("_book/downloads"),
+  params = list(
+    "online" = FALSE,
+    "show_code" = FALSE
+  )
+)
+
 ## render pdf
 bookdown::render_book(
   input = here::here(""),
