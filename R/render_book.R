@@ -1,6 +1,9 @@
 # render report
 
-fs::dir_delete(here::here("_book"))
+# clean _book folder
+if (fs::dir_exists(here::here("_book")) == TRUE) {
+  fs::dir_delete(here::here("_book"))
+}
 
 ## render bs4_book
 bookdown::render_book(
