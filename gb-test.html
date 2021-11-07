@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>6 Test der optimalen Parameterwerte | Prozessoptimierung am tpt Gold-Bonder</title>
+<meta name="author" content="Konstantin Schneider">
+<meta name="description" content='library(tidyverse) data_mock &lt;-  read_rds(here::here("data/gatebreak/gb_mock.rds")) load(here::here("data/gatebreak/gb_mock_plots.rda"))  6.1 Cr/Au Um die Ergebnisse des Screening Experiments zu...'>
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="6 Test der optimalen Parameterwerte | Prozessoptimierung am tpt Gold-Bonder">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://kdschneider.github.io/tpt-goldbonder/gb-test.html">
+<meta property="og:image" content="https://kdschneider.github.io/tpt-goldbonder/static/img/title_image.jpg">
+<meta property="og:description" content='library(tidyverse) data_mock &lt;-  read_rds(here::here("data/gatebreak/gb_mock.rds")) load(here::here("data/gatebreak/gb_mock_plots.rda"))  6.1 Cr/Au Um die Ergebnisse des Screening Experiments zu...'>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="6 Test der optimalen Parameterwerte | Prozessoptimierung am tpt Gold-Bonder">
+<meta name="twitter:description" content='library(tidyverse) data_mock &lt;-  read_rds(here::here("data/gatebreak/gb_mock.rds")) load(here::here("data/gatebreak/gb_mock_plots.rda"))  6.1 Cr/Au Um die Ergebnisse des Screening Experiments zu...'>
+<meta name="twitter:image" content="https://kdschneider.github.io/tpt-goldbonder/static/img/title_image.jpg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="static/css/bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Prozessoptimierung am tpt Gold-Bonder</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Suche" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Inhaltsverzeichnis</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Index</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Einleitung</a></li>
+<li><a class="" href="sample-prep.html"><span class="header-section-number">2</span> Probenherstellung</a></li>
+<li class="book-part">Gatedurchbrüche</li>
+<li><a class="" href="setup.html"><span class="header-section-number">4</span> Messaufbau</a></li>
+<li><a class="" href="gb-screening.html"><span class="header-section-number">5</span> Screening Experiment</a></li>
+<li><a class="active" href="gb-test.html"><span class="header-section-number">6</span> Test der optimalen Parameterwerte</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">7</span> Fazit</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/kdschneider/tpt-goldbonder">Quellcode/Daten <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="gb-test" class="section level1">
+<h1>
+<span class="header-section-number">6</span> Test der optimalen Parameterwerte<a class="anchor" aria-label="anchor" href="#gb-test"><i class="fas fa-link"></i></a>
+</h1>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data_mock</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/gatebreak/gb_mock.rds"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/gatebreak/gb_mock_plots.rda"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div id="crau" class="section level2">
+<h2>
+<span class="header-section-number">6.1</span> Cr/Au<a class="anchor" aria-label="anchor" href="#crau"><i class="fas fa-link"></i></a>
+</h2>
+<p>Um die Ergebnisse des Screening Experiments zu überprüfen, wurden mehere Chips mit Cr/Au Bondpads versehen. Diese sind kurzgeschlossen (siehe Abbildung <a href="gb-test.html#fig:mock-image">6.1</a>), und erlauben es so, mehrere Bonds auf einmal zu prüfen. Dies soll eine reale Anwendung simulieren, bei der mehrere Kontakte an einer Probe benötigt werden.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:mock-image"></span>
+<img src="static/img/gatebreak/gb-litho-mock.png" alt="Lithographie-Muster zum Testen der optimalen Parameterwerte."><p class="caption">
+Abbildung 6.1: Lithographie-Muster zum Testen der optimalen Parameterwerte.
+</p>
+</div>
+<div id="durchführung-1" class="section level3">
+<h3>
+<span class="header-section-number">6.1.1</span> Durchführung<a class="anchor" aria-label="anchor" href="#durchf%C3%BChrung-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Für die Messung wurden alle Bondpads einer Probe mit Bonds versehen. Hierbei wurde ein Bond wiederholt, falls er fehlgeschlagen ist. Hierbei haben 33 von 35 Bonds gehalten.</p>
+<p>Die verwendeten Parameterwerte waren:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span>
+  <span class="op">~</span><span class="st">"US"</span>, <span class="op">~</span><span class="st">"T"</span>, <span class="op">~</span><span class="st">"F"</span>, <span class="op">~</span><span class="st">"AU"</span>, <span class="op">~</span><span class="st">"CR"</span>, <span class="op">~</span><span class="st">"Temp"</span>,
+    <span class="fl">110</span>, <span class="fl">150</span>, <span class="fl">200</span>, <span class="st">"40 nm"</span>, <span class="st">"2 nm"</span>, <span class="st">"100 °C"</span>
+<span class="op">)</span> |&gt; 
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
+    align <span class="op">=</span> <span class="st">"c"</span>
+  <span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">US</th>
+<th align="center">T</th>
+<th align="center">F</th>
+<th align="center">AU</th>
+<th align="center">CR</th>
+<th align="center">Temp</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="center">110</td>
+<td align="center">150</td>
+<td align="center">200</td>
+<td align="center">40 nm</td>
+<td align="center">2 nm</td>
+<td align="center">100 °C</td>
+</tr></tbody>
+</table></div>
+<p>Die Messungen wurden an einem Keithley SourceMeter 2450 durchgeführt. Hierfür wurde an jede Probe ein Spannungssweep von 0 bis 200 Volt angelegt. Dies wurde für jede Probe dreimal wiederholt und zusätzlich jeweils eine Blindmessung aufgenommen.</p>
+</div>
+<div id="auswertung-1" class="section level3">
+<h3>
+<span class="header-section-number">6.1.2</span> Auswertung<a class="anchor" aria-label="anchor" href="#auswertung-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Abbildung <a href="gb-test.html#fig:gb-test-kennlinie">6.2</a> zeigt die Kennlinien der Durchgeführten Messungen. Hierbei zeigt Messung 1 an Chip 1 einen Gate-Durchbruch bei 199.5 Volt. Dies hatte einen Einfluss auf Messung 3 an Chip 1: Ab ca. 100 Volt beginnt ein Leckstrom zu fließen.</p>
+<p>Die restlichen Messungen stimmen gut überein: Bei 35.5 Volt existiert ein Peak, welcher auch in den Blindmessungen festgestellt wurde (siehe Abbildung <a href="gb-test.html#fig:gb-test-blind">6.3</a>. Im Vergleich zu den Blindmessungen wurde an den Messungen an den Proben ein Blindstrom ab ca. 150 Volt festgestellt. Die Steigung des Blindstroms nimmt von Messung 1 bis 3 ab.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plot_crau_kennlinie</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:gb-test-kennlinie"></span>
+<img src="goldbonder-report_files/figure-html/gb-test-kennlinie-1.png" alt="Kennlinien der Messungen an 8 Bonds gleichzeitig. Die Kennlinie der ersten Messung an Chip 1 weißt einen Gate-Durchbruch auf." width="672"><p class="caption">
+Abbildung 6.2: Kennlinien der Messungen an 8 Bonds gleichzeitig. Die Kennlinie der ersten Messung an Chip 1 weißt einen Gate-Durchbruch auf.
+</p>
+</div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plot_crau_blind</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:gb-test-blind"></span>
+<img src="goldbonder-report_files/figure-html/gb-test-blind-1.png" alt="Gemittelte Kennlinie der Blindmessungen." width="672"><p class="caption">
+Abbildung 6.3: Gemittelte Kennlinie der Blindmessungen.
+</p>
+</div>
+</div>
+</div>
+<div id="crpdau" class="section level2">
+<h2>
+<span class="header-section-number">6.2</span> Cr/Pd/Au<a class="anchor" aria-label="anchor" href="#crpdau"><i class="fas fa-link"></i></a>
+</h2>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="gb-screening.html"><span class="header-section-number">5</span> Screening Experiment</a></div>
+<div class="next"><a href="conclusion.html"><span class="header-section-number">7</span> Fazit</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="In diesem Kapitel"><h2>In diesem Kapitel</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#gb-test"><span class="header-section-number">6</span> Test der optimalen Parameterwerte</a></li>
+<li>
+<a class="nav-link" href="#crau"><span class="header-section-number">6.1</span> Cr/Au</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#durchf%C3%BChrung-1"><span class="header-section-number">6.1.1</span> Durchführung</a></li>
+<li><a class="nav-link" href="#auswertung-1"><span class="header-section-number">6.1.2</span> Auswertung</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#crpdau"><span class="header-section-number">6.2</span> Cr/Pd/Au</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/kdschneider/tpt-goldbonder/blob/master/chapters/05_gb_test.Rmd">Quellcode/Daten <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/kdschneider/tpt-goldbonder/edit/master/chapters/05_gb_test.Rmd">Bearbeiten <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Prozessoptimierung am tpt Gold-Bonder</strong>"</p>
+    <p>Konstantin Schneider</p>
+    <p>Zuletzt aktualisiert: 07. Nov 2021.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p> Verfasst für <a class="text-light" href="http://www.physik.uni-regensburg.de/forschung/eroms/index.phtml">AG Graphene</a> (PD Dr. Jonathan Eroms).</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
