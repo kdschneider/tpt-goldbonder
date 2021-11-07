@@ -1,0 +1,27 @@
+# (PART) Gatedurchbrüche {#gatebreak}
+
+# Messaufbau {#setup}
+
+Es wurden Gate-Durchbrüche durch einen Spannungssweep von 0 bis 100V, bzw. 0 bis 200V, provoziert. Hierfür wurden zwei unterschiedliche Messaufbauten verwendet: Ein Keysight B1500A Device Tester für Messungen bist 100V, und ein Keithley 2450 SourceMeter für Messungen bis 200V.
+
+## Keysight B1500A (100V) {#keysight}
+
+Spannungssweeps bis 100V wurden an einem [Keysight B1500A](https://www.keysight.com/de/de/products/parameter-device-analyzers-curve-tracer/precision-current-voltage-analyzers/b1500a-semiconductor-device-parameter-analyzer.html) durchgeführt. Hierfür wurde die Spannung über SMU1-Force an Kontakt 12 der Proben gelegt, während die zu testenden Bonds auf Masse gelegt wurden. 
+
+Am Keysight B1500A nicht möglich, Spannungen von über 100V anzulegen.
+
+```{r keysight-setup, echo = FALSE, out.width = "70%", fig.cap = "Messaufbau am Keysight B1500A."}
+knitr::include_graphics(here::here("static/img/gatebreak/gb-setup-keysight.jpg"))
+```
+
+## Keithley Sourcemeter 2450 (200V) {#keithley}
+
+Für Messungen bis 200 Volt wurde ein [Keithley 2450 SourceMeter](https://www.datatec.de/keithley-2450) verwendet. Dieses erlaubt es direkt am Gerät einen Spannungssweep bis 200 Volt zu erstellen. Schließt man das Keithley 2450 über Ethernet an das LAN Netzwerk der Uni an, kann man das Gerät über ein Webinterface fernsteuern. Hierfür muss die IP-Adresse des Keithleys abgelesen werden (*HOME* $\rightarrow$ *COMMUNICATION* $\rightarrow$ *LAN*). Dieses Webinterface ist relativ rudimentär, erlaubt es aber die Messdaten direkt aus dem Buffer zu speichern. 
+
+```{r keythley-setup, echo = FALSE, out.width = "70%", fig.cap = "Messaufbau am Keithley 2450. (Bild austauschen. Falsch verkabelt...)"}
+knitr::include_graphics(
+  here::here("static/img/gatebreak/gb-setup-keithley.jpg")
+)
+```
+
+Für die Messungen der Kennlinien wurde die Spannung an Kontakt 12 der Chipträger angelegt. Die Bonds wurden über einen ESD-Stecker an der Netzsteckdose auf Masse gelegt.

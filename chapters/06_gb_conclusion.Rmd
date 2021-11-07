@@ -1,0 +1,9 @@
+# Fazit {#conclusion}
+
+Abschließend kann festgehalten werden, dass die Erkenntnisse meiner Bachelorarbeit auch für den Gold-Bonder gelten. So steigt die Wahrscheinlichkeit eines Gate-Durchbruchs mit einer Erhöhung der Bondparamter. Dabei hat die Ultraschallleistung den größten Effekt. 
+
+Die Schichtdicke von Chrom hat keinen großen Einfluss auf die Wahrscheinlichkeit eines Gate-Durchbruchs. Die Schichtdicke von Gold dagegen, weißt einen messbaren Effekt auf: Durch eine Erhöhung der Schichtdicke, steigt die Wahrscheinlichkeit eines Gate-Durchbruchs. Dieses Ergebnis stimmt zwar mit meiner Bachelorarbeit überein, ist allerdings kontraintuitiv und kann nicht erklärt werden.
+
+Meine abschließende Empfehlung ist daher: Um einen Gate-Durchbruch möglichst zu vermeiden, sollte der Gold-Bonder verwendet werden. Dieser bietet im Vergleich zum Aluminium-Bonder den Vorteil, dass an ihm mit sehr viel geringerer Ultraschallenergie (US, T) gebondet werden kann.
+
+Die Schichtdicke der Bondpads zu erhöhen hat zudem nicht den erwarteten Effekt einer Verringerung der Wahrscheinlichkeit eines Gate-Durchbruchs. Stattdessen konnte ich die besten Ergebnisse (ein Gate-Durchbruch aus 32 Bonds) mit einer Schichtdicke von 2 nm Chrom und 40 nm Gold erreichen. 

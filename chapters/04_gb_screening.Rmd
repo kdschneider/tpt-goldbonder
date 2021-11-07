@@ -1,0 +1,135 @@
+# Screening Experiment {#gb-screening}
+
+```{r}
+library(tidyverse)
+library(parsnip)
+library(patchwork)
+```
+
+```{r}
+data_screening <- read_rds(
+  here::here("data/gatebreak/gb-screening.rds")
+)
+load(here::here("data/gatebreak/gb_screening_regression.rda"))
+load(here::here("data/gatebreak/gb_screening_plots.rda"))
+```
+
+## Versuchsplanung {#gb-screening-doe}
+
+Um festzustellen, welche Parameter am Gold-Bonder vermehrt zu Gate-Durchbrüchen führen, wurde zunächst ein Screening Experiment durchgeführt. Hierbei wurden die folgenden Faktoren im Rahmen eines Teilfaktorplans mit Auflösung III variiert:
+
+- Ultraschallleistung
+- Bondzeit
+- Bondkraft
+- Temperatur
+- Schichtdicke: Gold
+- Schichtdicke: Chrom
+
+Die verwendeten Parameterwerte und gemessenen Levelkombinationen, können Tabelle \@ref(tab:screening-design) entnommen werden. Diese orientierten sich an den empfohlenen Werten des Herstellers (siehe Abbildung \@ref(fig:recommended-values)).
+
+```{r screening-design}
+data_screening |> 
+  select(ultrasound:temperature) |> 
+  drop_na() |>
+  unique() |> 
+  arrange(-ultrasound) |> 
+  knitr::kable(
+    align = "cccccc",
+    caption = "Paramterwerte des Screening Experiments."
+  )
+```
+
+```{r recommended-values, echo = FALSE, fig.cap = "Empfohlene Werte aus dem Handbuch des tpt HB-10 Bonders für Golddraht.", out.width="60%"}
+knitr::include_graphics(
+  here::here("static/img/tpt_recommended.png")
+)
+```
+
+Aufgrund der Ergebnisse meiner Bachelorarbeit wurde vermutet, dass vor Allem die Ultraschallleistung und Bondzeit einen wesentlichen Einfluss auf die Wahrscheinlichkeit eines Gate-Durchbruchs haben.
+
+## Durchführung
+
+Es wurden pro Levelkombination der Schichtdicke von Gold und Chrom jeweils zwei Proben mit Bondpads hergestellt (siehe Abbildung \@ref(fig:screening-litho)). Diese wurden anschließend anhand des Versuchsplans mit Bonds versehen, wobei darauf geachtet wurde, jedes Bondpad nur einmal zu verwenden. 
+
+Mit dem Keysight B1500A wurde an jedem Bond einzeln ein Spannungssweep von 0 bis 100 Volt angelegt. Nach jeder Messung wurde der gemessene Bond mikroskopisch begutachtet. Hierbei hat sich gezeigt, dass es teilweise zu Gate-Durchbrüchen kam, die rein an den Messdaten nicht erkannt worden wären.
+
+```{r screening-litho, echo = FALSE, fig.cap="Verwendete Probengeometrie zum Messen von Gate-Durchbrüchen.", out.width="75%"}
+knitr::include_graphics(
+  here::here("static/img/gatebreak/gb-litho-check.png")
+)
+```
+
+Da es sich mit Gate-Durchbruch Ja/Nein, um eine kategorische Antwort handelt, wurde der Versuchsplan fünfmal wiederholt. Dadurch konnte in der Auswertung die relative Anzahl an Gate-Durchbrüchen untersucht werden.
+
+## Auswertung
+
+Von insgesamt `r nrow(filter(data_screening, type == "with-sample"))` Messungen führten `r nrow(filter(data_screening, type == "with-sample" & gate_break == TRUE))` Messungen zu einem Gate-Durchbruch. Die Kennlinien der Gate-Durchbrüche können Abbildung \@ref(fig:screening-plot-kennlinie) entnommen werden.
+
+Die Kennlinien zeigen, dass Gate-Durchbrüche ohne eine optische Kontrolle leicht hätten übersehen können, da ein Gate-Durchbruch allein an den Daten teils nicht zu erkennen ist (vergleiche Messung 46). 
+
+```{r screening-plot-kennlinie, fig.height = 7.5, fig.cap = "Kennlinien aller gemessenen Gate-Durchbrüche."}
+plot_screening_kennlinie
+```
+
+Abbildung \@ref(fig:screening-plot-effect) zeigt die Effekt-Plots der untersuchten Einflussgrößen. In diesem wurden die Mittelwerte der Messungen der einzelnen Level gebildet. Die Steigung des Plots signalisiert die größe des Effekts einer Einflussgröße.
+
+```{r screening-plot-effect, echo = FALSE, fig.height = 4.5, fig.cap = "Effektplot der untersuchten Faktoren. Die Steigung ist ein Maß für die Stärke eines Effekts."}
+plot_screening_effect
+```
+
+### Regression
+
+Eine Grundvorraussetzung der linearen Regression ist eine Normalverteilung der Zielgröße. Da die Zielgröße "Gate-Durchbruch = Ja/Nein" kategorisch ist wurde diese über den Mittelwert aus 5 Messungen in eine Wahrscheinlichkeit umgerechnet. Dadurch folgen die Daten allerdings nun einer Binomialverteilung. Dies wurde über eine Arcsin-Transformation korrigiert.
+
+$$ P(\text{Gate-Durchbruch)}_{trans.} = \arcsin\left(\sqrt{P(\text{Gate-Durchbruch})}\right)$$
+
+Somit ist eine Normalverteilung der Messergebnisse gegeben (Shapiro-Wilk: p = `r shapiro_data_screening_regression`).
+
+Es wurde eine lineare Regression mit allen untersuchten Einflussgrößen verwendet, um die Daten zu nähern. Tabelle \@ref(tab:screening-regression1) zeigt das Ergebnis dieser Regression. 
+
+Keiner der Faktoren besitzt statistische Signifikanz (p < 0.05), daher wurde die Regression schrittweise um nicht signifikante Terme reduziert.
+
+```{r screening-regression1}
+model_screening |> 
+  tidy() |> 
+  knitr::kable(
+    digits = 3,
+    caption = "Regressionstabelle."
+  )
+```
+
+Die finale Regression beinhaltet die Faktoren Ultraschallleistung, Bondkraft und Golddicke (siehe Tabelle \@ref(tab:screening-regression2))und bildet die Daten gut ab ($R^2_{\text{adj.}}$ = `r r2_model_screening`, p = `r p_model_screening`, vgl. Tabelle \@ref(tab:screening-regression2-stats)). Dabei weisen Ultraschallleistung und die Dicke der Goldschicht einen statistisch signifikanten Effekt auf (p < 0.05). Die Bondkraft besitzt keinen statistisch signifikanten Effekt, verbessert allerdings den Fit der Regression. 
+
+```{r screening-regression2-stats}
+model_screening |> 
+  glance() |> 
+  select(r.squared, adj.r.squared, statistic, p.value, df) |> 
+  knitr::kable(
+    digits = 3,
+    caption = "Statistiken der Regession."
+  )
+```
+
+Die finale Regressions-Funktion lautet:
+
+```{r}
+model_screening |> 
+  extract_fit_engine() |> 
+  equatiomatic::extract_eq(
+    swap_var_names = c(
+      "ultrasound" = "US",
+      "force" = "F",
+      "gold" = "AU",
+      "gate_break_corrected" = "P(Gate-Durchbruch)_trans."
+    ),
+    wrap = TRUE,
+    terms_per_line = 3,
+    use_coefs = TRUE,
+    coef_digits = 3,
+    fix_signs = TRUE
+  )
+```
+
+```{r gb-screening-contour, fig.height = 2.5, fig.cap="Contour-Plot der Regressionsfunktion.", cache=TRUE}
+plot_screening_contour
+```

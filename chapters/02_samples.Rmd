@@ -1,0 +1,64 @@
+# Probenherstellung {#sample-prep}
+
+```{r, echo = FALSE}
+library(tidyverse)
+```
+
+Um den Einfluss des Wire-Bondens am tpt Gold-Bonder auf Gate-Durchbrüche zu untersuchen, wurden Chips mit Bondpads aus Gold/Chrom versehen. Hierfür wurden Chips aus Si/SiO~2~ verwendet. Diese wurden gereinigt, belackt und mittels Elektronenstrahllithografie "beschrieben". Anschließend wurden Bondpads aus Chrom/Gold aufgedampft. Die einzelnen Schritte werden im Folgenden genauer erläutert.
+
+#### Reinigung {-}
+
+Die Proben wurden zunächst wie folgt chemisch gereinigt:
+
+- **Schritt 1:** 30s Aceton in Ultraschallbad.
+- **Schritt 2:** In Aceton schwenken.
+- **Schritt 3:** Mit Isopropanol spülen.
+- **Schritt 4:** Mit Stickstoff trocknen.
+
+Um organische Verunreinigungen zu entfernen, wurden die Proben im Anschluss zusätzlich für fünf Minuten bei 57% Leistung im (alten) Plasmaverascher gereinigt.
+
+##### Spin-Coating {-}
+
+Für die Lithographie wurde der positive e-Resist Lack *CSAR* der Firma *Allresist* verwendet. Um beim Spin-Coating eine möglichst gleichmäßige Schichtdicke zu erreichen wurden unterschiedliche Kombinationen der relevanten Parameter varriiert. Dies resultierte in den Parameterwerten aus Tabelle \@ref(tab:prep-spin), welche zuverlässig zu guten Ergebnissen führten.
+
+```{r prep-spin, echo = FALSE}
+knitr::kable(
+  tribble(
+    ~"Schritt", ~"RPM", ~"Ramp", ~"Dauer", ~"Tropfen",
+    "1", "-/-", "-/-", "-/-", "1-2",
+    "2", "4000", "800", "5", "-/-",
+    "3", "4000", "-/-", "20", "1-2",
+    "4", "6000", "800", "30", "-/-"
+  ),
+  caption = "CSAR Spin-Coating Parameter."
+)
+```
+
+Nach dem Belacken kamen die Proben bei 150 deg C für 60s auf eine Heizplatte (*Soft Bake*).
+
+#### Lithographie {-}
+##### Dosis {-}
+
+Um eine gute Dosis für CSAR zu finden, wurde ein Dose-Test von 40 bis 150 $\mu$C/cm^2^ durchgeführt. Dabei zeigte sich, dass ab einer Dosis von ca. 50 $\mu$C/cm^2^ kein Unterschied zwischen verschiedenen Dosen mehr zu erkennen ist. 
+
+Das [Datenblatt](https://www.allresist.de/wp-content/uploads/2020/03/AR-P6200_CSAR62_Deutsch_Allresist_Produktinformation.pdf) empfiehlt 65 $\mu$C/cm^2^. Da die Schichtdicke am Rand der Proben zunimmt, und die Proben meist flächendeckend mit Bondpads versehen wurden, wurde eine Dosis von 80 $\mu$C/cm^2^ verwendet.
+
+##### Entwickeln {-}
+
+- **Schritt 1:** 60s in Entwickler (AR 600-546).
+- **Schritt 2:** 60s in Isopropanol schwenken.
+- **Schritt 3:** Mit Isopropanol spülen.
+- **Schritt 4:** Mit Stickstoff trocknen.
+
+#### Bedampfen {-}
+
+- **Schritt 1:** 30s in Remover (AR 600-71, Raumtemperatur).
+- **Schritt 2:** Lift-Off.
+- **Schritt 3:** Mit Isopropanol spülen.
+- **Schritt 4:** Mit Stickstoff trocknen.
+
+#### Aufkleben {-}
+
+Die Chips wurden mit *Kleber (?)* auf einen Chipträger geklebt. Zum Aushärten des Klebers, wurden sie anschließend für 45 Minuten bei 150 Grad Celsius auf eine Heizplatte gelegt. 
+
+\clearpage
