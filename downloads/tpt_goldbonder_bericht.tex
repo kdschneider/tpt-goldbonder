@@ -94,57 +94,6 @@
   pdfcreator={LaTeX via pandoc with the Eisvogel template}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,]{geometry}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-
-% Workaround/bugfix from jannick0.
-% See https://github.com/jgm/pandoc/issues/4302#issuecomment-360669013)
-% or https://github.com/Wandmalfarbe/pandoc-latex-template/issues/2
-%
-% Redefine the verbatim environment 'Highlighting' to break long lines (with
-% the help of fvextra). Redefinition is necessary because it is unlikely that
-% pandoc includes fvextra in the default template.
-\usepackage{fvextra}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,fontsize=\small,commandchars=\\\{\}}
-
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -392,12 +341,6 @@
 
 Die neuen Wire-Bonder der Firma \emph{tpt} führen regelmäßig zu einer Beschädigung der isolierenden SiO\textsubscript{2}-Schicht von Proben auf Si/SiO\textsubscript{2}. Durch Anlegen einer Spannung an das Backgate (bulk Si) kann es durch diese Beschädigung zu einem Durchschlag (Gate-Durchbruch) kommen. Der Einfluss des Bondens mit dem \emph{tpt} Aluminium-Bonder auf die Wahrscheinlichkeit eines Gate-Durchbruchs wurde in meiner Bachelorarbeit untersucht. Für eine genaue Untersuchung des Verhaltens am \emph{tpt} Gold-Bonder blieb jedoch keine Zeit.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"static/img/gatebreak/gb-example.jpg"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.7\linewidth]{/Users/runner/work/tpt-goldbonder/tpt-goldbonder/static/img/gatebreak/gb-example} 
@@ -411,12 +354,6 @@ Ziel dieser Arbeit ist es daher festzustellen, ob das Bonden mit dem \emph{tpt} 
 
 \hypertarget{sample-prep}{%
 \section{Probenherstellung}\label{sample-prep}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
 
 Um den Einfluss des Wire-Bondens am tpt Gold-Bonder auf Gate-Durchbrüche zu untersuchen, wurden Chips mit Bondpads aus Gold/Chrom versehen. Hierfür wurden Chips aus Si/SiO\textsubscript{2} verwendet. Diese wurden gereinigt, belackt und mittels Elektronenstrahllithografie \enquote{beschrieben}. Anschließend wurden Bondpads aus Chrom/Gold aufgedampft. Die einzelnen Schritte werden im Folgenden genauer erläutert.
 
@@ -445,21 +382,6 @@ Um organische Verunreinigungen zu entfernen, wurden die Proben im Anschluss zus�
 \addcontentsline{toc}{subparagraph}{Spin-Coating}
 
 Für die Lithographie wurde der positive e-Resist Lack \emph{CSAR} der Firma \emph{Allresist} verwendet. Um beim Spin-Coating eine möglichst gleichmäßige Schichtdicke zu erreichen wurden unterschiedliche Kombinationen der relevanten Parameter varriiert. Dies resultierte in den Parameterwerten aus Tabelle \ref{tab:prep-spin}, welche zuverlässig zu guten Ergebnissen führten.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{tribble}\NormalTok{(}
-    \OperatorTok{~}\StringTok{"Schritt"}\NormalTok{, }\OperatorTok{~}\StringTok{"RPM"}\NormalTok{, }\OperatorTok{~}\StringTok{"Ramp"}\NormalTok{, }\OperatorTok{~}\StringTok{"Dauer"}\NormalTok{, }\OperatorTok{~}\StringTok{"Tropfen"}\NormalTok{,}
-    \StringTok{"1"}\NormalTok{, }\StringTok{"-/-"}\NormalTok{, }\StringTok{"-/-"}\NormalTok{, }\StringTok{"-/-"}\NormalTok{, }\StringTok{"1-2"}\NormalTok{,}
-    \StringTok{"2"}\NormalTok{, }\StringTok{"4000"}\NormalTok{, }\StringTok{"800"}\NormalTok{, }\StringTok{"5"}\NormalTok{, }\StringTok{"-/-"}\NormalTok{,}
-    \StringTok{"3"}\NormalTok{, }\StringTok{"4000"}\NormalTok{, }\StringTok{"-/-"}\NormalTok{, }\StringTok{"20"}\NormalTok{, }\StringTok{"1-2"}\NormalTok{,}
-    \StringTok{"4"}\NormalTok{, }\StringTok{"6000"}\NormalTok{, }\StringTok{"800"}\NormalTok{, }\StringTok{"30"}\NormalTok{, }\StringTok{"-/-"}
-\NormalTok{  ),}
-  \DataTypeTok{caption =} \StringTok{"CSAR Spin-Coating Parameter."}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 
@@ -547,12 +469,6 @@ Spannungssweeps bis 100V wurden an einem \href{https://www.keysight.com/de/de/pr
 
 Am Keysight B1500A nicht möglich, Spannungen von über 100V anzulegen.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"static/img/gatebreak/gb-setup-keysight.jpg"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.7\linewidth]{/Users/runner/work/tpt-goldbonder/tpt-goldbonder/static/img/gatebreak/gb-setup-keysight} 
@@ -567,14 +483,6 @@ Am Keysight B1500A nicht möglich, Spannungen von über 100V anzulegen.
 
 Für Messungen bis 200 Volt wurde ein \href{https://www.datatec.de/keithley-2450}{Keithley 2450 SourceMeter} verwendet. Dieses erlaubt es direkt am Gerät einen Spannungssweep bis 200 Volt zu erstellen. Schließt man das Keithley 2450 über Ethernet an das LAN Netzwerk der Uni an, kann man das Gerät über ein Webinterface fernsteuern. Hierfür muss die IP-Adresse des Keithleys abgelesen werden (\emph{HOME} \(\rightarrow\) \emph{COMMUNICATION} \(\rightarrow\) \emph{LAN}). Dieses Webinterface ist relativ rudimentär, erlaubt es aber die Messdaten direkt aus dem Buffer zu speichern.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}
-\NormalTok{  here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"static/img/gatebreak/gb-setup-keithley.jpg"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.7\linewidth]{/Users/runner/work/tpt-goldbonder/tpt-goldbonder/static/img/gatebreak/gb-setup-keithley} 
@@ -588,24 +496,6 @@ Für die Messungen der Kennlinien wurde die Spannung an Kontakt 12 der Chipträg
 
 \hypertarget{gb-screening}{%
 \section{Screening Experiment}\label{gb-screening}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidyverse)}
-\KeywordTok{library}\NormalTok{(parsnip)}
-\KeywordTok{library}\NormalTok{(patchwork)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data_screening <-}\StringTok{ }\KeywordTok{read_rds}\NormalTok{(}
-\NormalTok{  here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"data/gatebreak/gb-screening.rds"}\NormalTok{)}
-\NormalTok{)}
-\KeywordTok{load}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"data/gatebreak/gb_screening_regression.rda"}\NormalTok{))}
-\KeywordTok{load}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"data/gatebreak/gb_screening_plots.rda"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{gb-screening-doe}{%
 \subsection{Versuchsplanung}\label{gb-screening-doe}}
@@ -629,20 +519,6 @@ Um festzustellen, welche Parameter am Gold-Bonder vermehrt zu Gate-Durchbrüchen
 \end{itemize}
 
 Die verwendeten Parameterwerte und gemessenen Levelkombinationen, können Tabelle \ref{tab:screening-design} entnommen werden. Diese orientierten sich an den empfohlenen Werten des Herstellers (siehe Abbildung \ref{fig:recommended-values}).
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data_screening }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\KeywordTok{select}\NormalTok{(ultrasound}\OperatorTok{:}\NormalTok{temperature) }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\KeywordTok{drop_na}\NormalTok{() }\OperatorTok{|}\ErrorTok{>}
-\StringTok{  }\KeywordTok{unique}\NormalTok{() }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\OperatorTok{-}\NormalTok{ultrasound) }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-    \DataTypeTok{align =} \StringTok{"cccccc"}\NormalTok{,}
-    \DataTypeTok{caption =} \StringTok{"Paramterwerte des Screening Experiments."}
-\NormalTok{  )}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 
@@ -673,14 +549,6 @@ ultrasound & time & force & gold & chrome & temperature\\
 \end{tabular}
 \end{table}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}
-\NormalTok{  here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"static/img/tpt_recommended.png"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.6\linewidth]{/Users/runner/work/tpt-goldbonder/tpt-goldbonder/static/img/tpt_recommended} 
@@ -698,14 +566,6 @@ Aufgrund der Ergebnisse meiner Bachelorarbeit wurde vermutet, dass vor Allem die
 Es wurden pro Levelkombination der Schichtdicke von Gold und Chrom jeweils zwei Proben mit Bondpads hergestellt (siehe Abbildung \ref{fig:screening-litho}). Diese wurden anschließend anhand des Versuchsplans mit Bonds versehen, wobei darauf geachtet wurde, jedes Bondpad nur einmal zu verwenden.
 
 Mit dem Keysight B1500A wurde an jedem Bond einzeln ein Spannungssweep von 0 bis 100 Volt angelegt. Nach jeder Messung wurde der gemessene Bond mikroskopisch begutachtet. Hierbei hat sich gezeigt, dass es teilweise zu Gate-Durchbrüchen kam, die rein an den Messdaten nicht erkannt worden wären.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}
-\NormalTok{  here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"static/img/gatebreak/gb-litho-check.png"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{figure}
 
@@ -725,12 +585,6 @@ Von insgesamt 55 Messungen führten 11 Messungen zu einem Gate-Durchbruch. Die K
 
 Die Kennlinien zeigen, dass Gate-Durchbrüche ohne eine optische Kontrolle leicht hätten übersehen können, da ein Gate-Durchbruch allein an den Daten teils nicht zu erkennen ist (vergleiche Messung 46).
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{plot_screening_kennlinie}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth]{tpt_goldbonder_bericht_files/figure-latex/screening-plot-kennlinie-1} 
@@ -741,12 +595,6 @@ Die Kennlinien zeigen, dass Gate-Durchbrüche ohne eine optische Kontrolle leich
 \end{figure}
 
 Abbildung \ref{fig:screening-plot-effect} zeigt die Effekt-Plots der untersuchten Einflussgrößen. In diesem wurden die Mittelwerte der Messungen der einzelnen Level gebildet. Die Steigung des Plots signalisiert die größe des Effekts einer Einflussgröße.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{plot_screening_effect}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{figure}
 
@@ -770,17 +618,6 @@ Es wurde eine lineare Regression mit allen untersuchten Einflussgrößen verwend
 
 Keiner der Faktoren besitzt statistische Signifikanz (p \textless{} 0.05), daher wurde die Regression schrittweise um nicht signifikante Terme reduziert.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{model_screening }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\KeywordTok{tidy}\NormalTok{() }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-    \DataTypeTok{digits =} \DecValTok{3}\NormalTok{,}
-    \DataTypeTok{caption =} \StringTok{"Regressionstabelle."}
-\NormalTok{  )}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{table}
 
 \caption{\label{tab:screening-regression1}Regressionstabelle.}
@@ -802,18 +639,6 @@ gold & 0.166 & 0.055 & 3.042 & 0.029\\
 
 Die finale Regression beinhaltet die Faktoren Ultraschallleistung, Bondkraft und Golddicke (siehe Tabelle \ref{tab:screening-regression2})und bildet die Daten gut ab (\(R^2_{\text{adj.}}\) = 88.9\%, p = 0.008, vgl. Tabelle \ref{tab:screening-regression2-stats}). Dabei weisen Ultraschallleistung und die Dicke der Goldschicht einen statistisch signifikanten Effekt auf (p \textless{} 0.05). Die Bondkraft besitzt keinen statistisch signifikanten Effekt, verbessert allerdings den Fit der Regression.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{model_screening }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\KeywordTok{glance}\NormalTok{() }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\KeywordTok{select}\NormalTok{(r.squared, adj.r.squared, statistic, p.value, df) }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-    \DataTypeTok{digits =} \DecValTok{3}\NormalTok{,}
-    \DataTypeTok{caption =} \StringTok{"Statistiken der Regession."}
-\NormalTok{  )}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{table}
 
 \caption{\label{tab:screening-regression2-stats}Statistiken der Regession.}
@@ -829,38 +654,12 @@ r.squared & adj.r.squared & statistic & p.value & df\\
 
 Die finale Regressions-Funktion lautet:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{model_screening }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\KeywordTok{extract_fit_engine}\NormalTok{() }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\NormalTok{equatiomatic}\OperatorTok{::}\KeywordTok{extract_eq}\NormalTok{(}
-    \DataTypeTok{swap_var_names =} \KeywordTok{c}\NormalTok{(}
-      \StringTok{"ultrasound"}\NormalTok{ =}\StringTok{ "US"}\NormalTok{,}
-      \StringTok{"force"}\NormalTok{ =}\StringTok{ "F"}\NormalTok{,}
-      \StringTok{"gold"}\NormalTok{ =}\StringTok{ "AU"}\NormalTok{,}
-      \StringTok{"gate_break_corrected"}\NormalTok{ =}\StringTok{ "P(Gate-Durchbruch)_trans."}
-\NormalTok{    ),}
-    \DataTypeTok{wrap =} \OtherTok{TRUE}\NormalTok{,}
-    \DataTypeTok{terms_per_line =} \DecValTok{3}\NormalTok{,}
-    \DataTypeTok{use_coefs =} \OtherTok{TRUE}\NormalTok{,}
-    \DataTypeTok{coef_digits =} \DecValTok{3}\NormalTok{,}
-    \DataTypeTok{fix_signs =} \OtherTok{TRUE}
-\NormalTok{  )}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{equation}
 \begin{aligned}
 \operatorname{\widehat{P(Gate-Durchbruch)\_trans.}} &= 0.395 + 0.282(\operatorname{US}) + 0.111(\operatorname{F})\ + \\
 &\quad 0.166(\operatorname{AU})
 \end{aligned}
 \end{equation}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{plot_screening_contour}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{figure}
 
@@ -874,33 +673,10 @@ Die finale Regressions-Funktion lautet:
 \hypertarget{gb-mock}{%
 \section{Test der optimalen Parameterwerte}\label{gb-mock}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data_mock <-}\StringTok{ }
-\StringTok{  }\KeywordTok{read_rds}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"data/gatebreak/gb_mock.rds"}\NormalTok{))}
-
-\KeywordTok{load}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"data/gatebreak/gb_mock_plots.rda"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{crau}{%
 \subsection{Cr/Au}\label{crau}}
 
 Um die Ergebnisse des Screening Experiments zu überprüfen, wurden mehere Chips mit Cr/Au Bondpads versehen. Diese sind kurzgeschlossen (siehe Abbildung \ref{fig:mock-image}), und erlauben es so, mehrere Bonds auf einmal zu prüfen. Dies soll eine reale Anwendung simulieren, bei der mehrere Kontakte an einer Probe benötigt werden.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}
-\NormalTok{  here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"static/img/gatebreak/gb-litho-mock.png"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{figure}
 
@@ -917,18 +693,6 @@ Um die Ergebnisse des Screening Experiments zu überprüfen, wurden mehere Chips
 Für die Messung wurden alle Bondpads einer Probe mit Bonds versehen. Hierbei wurde ein Bond wiederholt, falls er fehlgeschlagen ist. Hierbei haben 33 von 35 Bonds gehalten.
 
 Die verwendeten Parameterwerte waren:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{tribble}\NormalTok{(}
-  \OperatorTok{~}\StringTok{"US"}\NormalTok{, }\OperatorTok{~}\StringTok{"T"}\NormalTok{, }\OperatorTok{~}\StringTok{"F"}\NormalTok{, }\OperatorTok{~}\StringTok{"AU"}\NormalTok{, }\OperatorTok{~}\StringTok{"CR"}\NormalTok{, }\OperatorTok{~}\StringTok{"Temp"}\NormalTok{,}
-    \DecValTok{110}\NormalTok{, }\DecValTok{150}\NormalTok{, }\DecValTok{200}\NormalTok{, }\StringTok{"40 nm"}\NormalTok{, }\StringTok{"2 nm"}\NormalTok{, }\StringTok{"100 °C"}
-\NormalTok{) }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-    \DataTypeTok{align =} \StringTok{"c"}
-\NormalTok{  )}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{tabular}{c|c|c|c|c|c}
 \hline
@@ -947,12 +711,6 @@ Abbildung \ref{fig:gb-test-kennlinie} zeigt die Kennlinien der Durchgeführten M
 
 Die restlichen Messungen stimmen gut überein: Bei 35.5 Volt existiert ein Peak, welcher auch in den Blindmessungen festgestellt wurde (siehe Abbildung \ref{fig:gb-test-blind}. Im Vergleich zu den Blindmessungen wurde an den Messungen an den Proben ein Blindstrom ab ca. 150 Volt festgestellt. Die Steigung des Blindstroms nimmt von Messung 1 bis 3 ab.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{plot_crau_kennlinie}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth]{tpt_goldbonder_bericht_files/figure-latex/gb-test-kennlinie-1} 
@@ -961,12 +719,6 @@ Die restlichen Messungen stimmen gut überein: Bei 35.5 Volt existiert ein Peak,
 
 \caption{Kennlinien der Messungen an 8 Bonds gleichzeitig. Die Kennlinie der ersten Messung an Chip 1 weißt einen Gate-Durchbruch auf.}\label{fig:gb-test-kennlinie}
 \end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{plot_crau_blind}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{figure}
 
@@ -1003,14 +755,6 @@ Es wird zwischen zwei Arten des Pull-Tests unterschieden: Beim nicht-destruktive
 
 Der hier verwendete Pull-Tester wurde von Michael Weigl in Rücksprache mit mir entworfen und gebaut. Maßgebendes Vorbild war hierbei der Pull-Tester der Firma \emph{tpt}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}
-\NormalTok{  here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"static/img/pulltest/pt-setup-1.jpg"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{/Users/runner/work/tpt-goldbonder/tpt-goldbonder/static/img/pulltest/pt-setup-1} 
@@ -1020,14 +764,6 @@ Der hier verwendete Pull-Tester wurde von Michael Weigl in Rücksprache mit mir 
 \caption{Federwaage des Pulltesters. }\label{fig:pt-setup-1}
 \end{figure}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}
-\NormalTok{  here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"static/img/pulltest/pt-setup-2.jpg"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{/Users/runner/work/tpt-goldbonder/tpt-goldbonder/static/img/pulltest/pt-setup-2} 
@@ -1036,14 +772,6 @@ Der hier verwendete Pull-Tester wurde von Michael Weigl in Rücksprache mit mir 
 
 \caption{Federwaage des Pulltesters. }\label{fig:pt-setup-2}
 \end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}
-\NormalTok{  here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"static/img/pulltest/pt-setup-3.jpg"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{figure}
 
@@ -1056,14 +784,6 @@ Der hier verwendete Pull-Tester wurde von Michael Weigl in Rücksprache mit mir 
 
 Einen geeigneten Haken zu finden, der fein genug ist, um ohne Schwierigkeiten unter den Loop eines Bonds passt, stellte sich als schwierig heraus. Die beste Lösung die wir gefunden haben, ist die Verwendung einer feinen Messspitze. Diese habe ich vorsichtig zurechtgebogen, um einen Haken zu formen (siehe Abbildung \ref{fig:pulltester-tip}).
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}
-\NormalTok{  here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"static/img/pulltest/pt-tip.jpg"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.7\linewidth]{/Users/runner/work/tpt-goldbonder/tpt-goldbonder/static/img/pulltest/pt-tip} 
@@ -1075,20 +795,6 @@ Einen geeigneten Haken zu finden, der fein genug ist, um ohne Schwierigkeiten un
 
 \hypertarget{pt-optimal}{%
 \section{Optimierung der Haltekraft}\label{pt-optimal}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{load}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"data/pulltest/pt_bbd.rda"}\NormalTok{))}
-\KeywordTok{load}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"data/pulltest/pt_bbd_regression.rda"}\NormalTok{))}
-\KeywordTok{load}\NormalTok{(here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"data/pulltest/pt_bbd_plots.rda"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
 
 Es soll die maximale Haltekraft eines Bonds durch Pull-Tests und Methoden der statistischen Versuchsplanung optimiert werden.
 
@@ -1127,12 +833,6 @@ Es wurden 9x2 Proben flächendeckend mit Cr/Au bedampft und auf Chipträger gekl
 
 Abbildung \ref{fig:pt-bbd1-index} zeigt die gemessene maximale Zugkraft gegen die Versuchsreihenfolge aufgetragen. Die horizontalen Linien signalisieren den Mittelwert der Messungen mit einer Einstellung des Bondtools. Dies zeigt, dass das Justieren des Bondtools einen großen Einfluss auf die Qualität der Bonds hatte. Besonders nach der ersten Justierung kam es zu einem starken Abfall der mittleren Haltekraft.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{plot_bbd_runorder}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth]{tpt_goldbonder_bericht_files/figure-latex/pt-bbd1-index-1} 
@@ -1142,24 +842,10 @@ Abbildung \ref{fig:pt-bbd1-index} zeigt die gemessene maximale Zugkraft gegen di
 \caption{Plot der Versuchsreihenfolge. Im Idealfall sollte kein Muster zu erkennen sein, allerdings hat eine Justierung des Bondtools eindeutig einen Einfluss auf die Qualität der Bonds.}\label{fig:pt-bbd1-index}
 \end{figure}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{plot_bbd_effect}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{center}\includegraphics[width=1\linewidth]{tpt_goldbonder_bericht_files/figure-latex/unnamed-chunk-21-1} \end{center}
 
 \hypertarget{regression-1}{%
 \subsubsection{Regression}\label{regression-1}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{model_bbd }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\KeywordTok{glance}\NormalTok{() }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{tabular}{r|r|r|r|r|r|r|r|r|r|r|r}
 \hline
@@ -1168,15 +854,6 @@ r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & AIC & BI
 0.4841147 & -0.1724666 & 14.38831 & 0.7373263 & 0.7787796 & 28 & -186.9131 & 433.8262 & 491.781 & 4554.518 & 22 & 51\\
 \hline
 \end{tabular}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{model_bbd }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\KeywordTok{tidy}\NormalTok{() }\OperatorTok{|}\ErrorTok{>}
-\StringTok{  }\KeywordTok{drop_na}\NormalTok{() }\OperatorTok{|}\ErrorTok{>}\StringTok{ }
-\StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{tabular}{l|r|r|r|r}
 \hline
