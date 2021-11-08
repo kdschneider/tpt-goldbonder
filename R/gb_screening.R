@@ -1,4 +1,3 @@
-## ----echo = FALSE--------------------------------------------------------------------------------------------------------------------------------------
 #####################################################
 ###                                               ###
 ###   File created automatically. Do not change!  ###
@@ -6,20 +5,14 @@
 ###                                               ###
 #####################################################
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 source(here::here("R/custom_functions.R"))
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 library(tidyverse)
 library(lubridate)
 library(FrF2)
 library(patchwork)
 library(parsnip)
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 factors_screening <-
   list(
     ultrasound = c(180, 280),
@@ -54,8 +47,6 @@ design_screening <-
 
 
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 with_sample <-
   tibble(
     filename = list.files(
@@ -154,69 +145,6 @@ remove(no_sample, with_sample)
 
 
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
-data_screening_regression <-
-  data_screening |>
-  filter(type == "with-sample") |>
-  rescale_factors(ultrasound:temperature) |>
-  select(ultrasound:temperature, gate_break) |>
-  mutate(gate_break = as.numeric(gate_break)) |>
-  group_by(ultrasound, time, force, gold, chrome, temperature) |>
-  summarise(
-    gate_break = mean(gate_break)
-  ) |>
-  # correct count-percentage data via arcsin-transformation
-  mutate(gate_break_corrected = asin(sqrt(gate_break)))
-
-
-
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
-shapiro_data_screening_regression <-
-  shapiro.test(
-    data_screening_regression$gate_break_corrected
-  ) |>
-  tidy() |>
-  pull(p.value) |>
-  round(digits = 3)
-
-
-
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
-model_specs <-
-  linear_reg() |>
-  set_engine("lm")
-
-model_screening <-
-  model_specs |>
-  fit(
-    formula = gate_break_corrected ~ ultrasound + force + gold,
-    data = data_screening_regression
-  )
-
-
-
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
-r2_model_screening <-
-  model_screening |>
-  glance() |>
-  pull(r.squared) |>
-  scales::percent(accuracy = 0.1)
-
-p_model_screening <-
-  model_screening |>
-  glance() |>
-  pull(p.value) |>
-  as.numeric() |> 
-  round(digits = 3)
-
-
-
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 plot_screening_kennlinie <-
   data_screening |>
   filter(gate_break == TRUE) |>
@@ -246,24 +174,92 @@ plot_screening_kennlinie <-
 
 
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
-plot_screening_effect <-
+plot_screening_effect <- 
   data_screening |>
-  create_effect_plot(
-    factors = ultrasound:temperature,
-    response = gate_break
-  ) +
-  labs(
-    x = "Faktorlevel",
-    y = "Rel. Anzahl an Gate-Durchbrüchen"
+  rescale_factors(ultrasound:temperature) |>
+    pivot_longer(cols = ultrasound:temperature) |>
+    mutate(
+      name = as_factor(name) |> 
+        fct_recode(
+          "Ultraschallleistung" = "ultrasound",
+          "Bondzeit" = "time",
+          "Bondkraft" = "force",
+          "Temperatur" = "temperature",
+          "Schichtdicke: Gold" = "gold",
+          "Schichtdicke: Chrom" = "chrome"
+        )
+    ) |> 
+    group_by(name, value) |>
+    summarise(gate_break = mean(gate_break)) |>
+    ggplot(
+      aes(
+        x = value,
+        y = gate_break
+      )
+    ) +
+    geom_line() +
+    geom_point() +
+    labs(
+      x = "Level",
+      y = "P(Gatedurchbruch)"
+    ) +
+    facet_wrap(vars(name), ncol = 3)
+
+
+
+data_screening_regression <-
+  data_screening |>
+  filter(type == "with-sample") |>
+  rescale_factors(ultrasound:temperature) |>
+  select(ultrasound:temperature, gate_break) |>
+  mutate(gate_break = as.numeric(gate_break)) |>
+  group_by(ultrasound, time, force, gold, chrome, temperature) |>
+  summarise(
+    gate_break = mean(gate_break)
+  ) |>
+  mutate(gate_break_asin = asin(sqrt(gate_break)))
+
+
+
+shapiro_data_screening_regression <-
+  shapiro.test(
+    data_screening_regression$gate_break_asin
+  ) |>
+  tidy() |>
+  pull(p.value) |>
+  round(digits = 3)
+
+
+
+model_specs <-
+  linear_reg() |>
+  set_engine("lm")
+
+model_screening <-
+  model_specs |>
+  fit(
+    formula = gate_break_asin ~ ultrasound + force + gold,
+    data = data_screening_regression
   )
 
 
 
+r2_model_screening <-
+  model_screening |>
+  glance() |>
+  pull(r.squared) |>
+  scales::percent(accuracy = 0.1)
 
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
-n <- 100
+p_model_screening <-
+  model_screening |>
+  glance() |>
+  pull(p.value) |>
+  as.numeric() |> 
+  round(digits = 3)
+
+
+
+n <- 75
 new_data <-
   tibble(
     ultrasound = -1:1,
@@ -293,23 +289,28 @@ contour_data <-
 
 p1 <-
   contour_data |>
+  filter(gold == 0) |> 
   ggplot() +
   geom_raster(aes(x = ultrasound, y = force, fill = value), show.legend = FALSE) +
-  geom_contour(aes(x = ultrasound, y = force, z = value), colour = "black", linetype = 2) +
+  geom_contour(
+    aes(x = ultrasound, y = force, z = value), 
+    colour = "black", linetype = 2
+  ) +
   labs(
-    x = "US",
-    y = "F",
-    fill = "P(GD)"
-  )
+    x = "Ultraschallleistung",
+    y = "Bondkraft",
+    fill = "P(Gatebreak)"
+  ) 
 
 p2 <-
   contour_data |>
+  filter(force == 0) |> 
   ggplot() +
-  geom_raster(aes(x = ultrasound, y = gold, fill = value), show.legend = FALSE) +
+  geom_raster(aes(x = ultrasound, y = gold, fill = value)) +
   geom_contour(aes(x = ultrasound, y = gold, z = value), colour = "black", linetype = 2) +
   labs(
-    x = "US",
-    y = "AU",
+    x = "Ultraschallleistung",
+    y = "Schichtdicke: Gold",
     fill = "P(GD)"
   ) +
   theme(
@@ -318,12 +319,17 @@ p2 <-
 
 p3 <-
   contour_data |>
+  filter(ultrasound == 0) |> 
   ggplot() +
-  geom_raster(aes(x = force, y = gold, fill = value)) +
-  geom_contour(aes(x = force, y = gold, z = value), colour = "black", linetype = 2) +
+  geom_raster(aes(x = force, y = gold, fill = value), show.legend = FALSE) +
+  geom_contour(
+    aes(x = force, y = gold, z = value), 
+    colour = "black", 
+    linetype = 2
+  ) +
   labs(
-    x = "F",
-    y = "AU",
+    x = "Bondkraft",
+    y = "Schichtdicke: Gold",
     fill = "P(GD)"
   ) +
   theme(
@@ -331,7 +337,7 @@ p3 <-
   )
 
 plot_screening_contour <-
-  (p1 | p2 | p3) &
+  (p1 / p2 / p3) &
   viridis::scale_fill_viridis(option = "A") &
   scale_x_continuous(n.breaks = 5) &
   scale_y_continuous(n.breaks = 5)
@@ -340,8 +346,6 @@ remove(n, new_data, predict_data, p1, p2, p3)
 
 
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 fs::dir_create(
   path = c(
     here::here("data/doe"),
@@ -377,4 +381,3 @@ save(
   plot_screening_contour,
   file = here::here("data/gatebreak/gb_screening_plots.rda")
 )
-

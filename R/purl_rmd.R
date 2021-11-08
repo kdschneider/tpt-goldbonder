@@ -20,6 +20,7 @@ purrr::walk2(
   .y = files_name,
   .f = ~knitr::purl(
     input = .x,
-    output = here::here("R", glue::glue("{.y}.R"))
+    output = here::here("R", glue::glue("{.y}.R")),
+    documentation = 0
   )
 )

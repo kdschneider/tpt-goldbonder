@@ -7,28 +7,25 @@ check_loaded <- function(package) {
 
 # rescale factors
 rescale_factors <- function(data, factors) {
-
-  res <-
-    data |>
+  data |>
     mutate(
       across(
         .cols = {{ factors }},
-        .fns = function(x) {
-          scales::rescale(x, to = c(-1,1))
-        }
+        .fns = function(x) { scales::rescale(x, to = c(-1,1)) }
       )
     )
-
-  res
-
 }
 
-create_effect_plot <- function(data, factors, response) {
+create_effect_plot <- function(data, factors, response, rename) {
 
   dat <-
     data |>
     rescale_factors({{ factors }}) |>
     pivot_longer(cols = {{ factors }}) |>
+    mutate(
+      name = as_factor(name) |>
+        fct_recode(dots_list({{ rename }}))
+    ) |>
     group_by(name, value) |>
     summarise({{ response }} := mean({{ response }})) |>
     drop_na()
@@ -46,13 +43,12 @@ create_effect_plot <- function(data, factors, response) {
     facet_wrap(vars(name), ncol = 3)
 
   return(plot)
-
 }
 
 ### plotly/ggplot for html/pdf
-show_plot <- function(plot) {
+show_plot <- function(plot, ...) {
   if (knitr::is_html_output() == TRUE) {
-    return(plotly::ggplotly(plot))
+    return(plotly::ggplotly(plot, ...))
   } else {
     return(plot)
   }

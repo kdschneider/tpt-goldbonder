@@ -1,4 +1,3 @@
-## ----echo = FALSE--------------------------------------------------------------------------------------------------------------------------------------
 #####################################################
 ###                                               ###
 ###   File created automatically. Do not change!  ###
@@ -6,18 +5,12 @@
 ###                                               ###
 #####################################################
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 source(here::here("R/custom_functions.R"))
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 library(tidyverse)
 library(rsm)
 library(parsnip)
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 set.seed(9393)
 
 coding_bbd <-
@@ -53,8 +46,6 @@ design_bbd <-
 
 
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 data_bbd <-
   read_csv(
     here::here("data-raw/pulltest/box_behnken/pt-bbd.csv")
@@ -72,12 +63,38 @@ data_bbd <-
     )
   )
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 data_bbd |> head()
 
+plot_bbd_runorder <-
+  data_bbd |>
+  mutate(index = row_number()) |>
+  pivot_longer(ultrasound:temperature) |>
+  mutate(bondtool = as_factor(bondtool) |> fct_inseq()) |>
+  group_by(bondtool) |>
+  mutate(bondtool_mean = mean(rip_force)) |>
+  ggplot(aes(x = index)) +
+  geom_line(
+    aes(
+      y = bondtool_mean,
+      colour = bondtool
+    ),
+    size = 1
+  ) +
+  geom_point(
+    aes(
+      y = rip_force
+    ),
+    alpha = 0.5,
+    size = 1
+  ) +
+  labs(
+    x = "Versuchsreihenfolge",
+    y = "Haltekraft in mN",
+    colour = "Bondtool"
+  )
 
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
+plot_bbd_runorder
+
 data_bbd_mean <-
   data_bbd |>
   select(-measurement) |>
@@ -90,91 +107,60 @@ data_bbd_mean <-
   unique() |>
   ungroup()
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 data_bbd_mean |> head()
 
+plot_bbd_effect <-
+  data_bbd_mean |> 
+  pivot_longer(ultrasound.c:temperature.c) |> 
+  select(name, value, rip_force) |> 
+  mutate(
+    name = as_factor(name) |> 
+      fct_recode(
+        "Ultraschallleistung" = "ultrasound.c",
+        "Bondzeit" = "time.c",
+        "Bondkraft" = "force.c",
+        "Temperatur" = "temperature.c",
+        "Schichtdicke: Gold" = "gold.c",
+        "Schichtdicke: Chrome" = "chrome.c"
+      )
+  ) |> 
+  group_by(name, value) |> 
+  summarise(rip_force = mean(rip_force)) |> 
+  ggplot(aes(x = value, y = rip_force)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Level",
+    y = "mittlere Haltekraft in mN"
+  ) +
+  facet_wrap(facet = vars(name))
 
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
+plot_bbd_effect
+
+plot_bbd_effect
+
 model_specs <-
   linear_reg() |>
   set_engine("lm")
 
+formula_model_bbd <- 
+  rip_force ~ run.order +
+    ultrasound + time + force + temperature + chrome + gold +
+    ultrasound:time + ultrasound:force + ultrasound:temperature + ultrasound:chrome + ultrasound:gold +
+    time:force + time:temperature + time:chrome + time:gold +
+    force:temperature + force:chrome + force:gold +
+    temperature:chrome + temperature:gold + chrome:gold +
+    I(ultrasound^2) + I(time^2) + I(force^2) + I(temperature^2) + I(chrome^2) + I(gold^2)
+
 model_bbd <-
   model_specs |>
   fit(
-    formula = rip_force ~ run.order +
-      ultrasound + time + force + temperature + chrome + gold +
-      ultrasound:time + ultrasound:force + ultrasound:temperature + ultrasound:chrome + ultrasound:gold +
-      time:force + time:temperature + time:chrome + time:gold +
-      force:temperature + force:chrome + force:gold +
-      temperature:chrome + temperature:gold + chrome:gold +
-      I(ultrasound^2) + I(time^2) + I(force^2) + I(temperature^2) + I(chrome^2) + I(gold^2),
+    formula = formula_model_bbd,
     data = data_bbd_mean
   )
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 summary(model_bbd$fit)
 
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
-plot_bbd_runorder <-
-  data_bbd |>
-  mutate(index = row_number()) |>
-  pivot_longer(ultrasound:temperature) |>
-  mutate(
-    bondtool = as_factor(bondtool) |>
-      fct_inseq()
-  ) |>
-  group_by(bondtool) |>
-  mutate(
-    bondtool_mean = mean(rip_force)
-  ) |>
-  ggplot(aes(x = index)) +
-  geom_line(
-    mapping = aes(
-      y = bondtool_mean,
-      colour = bondtool
-    ),
-    size = 1
-  ) +
-  geom_point(
-    mapping = aes(y = rip_force),
-    alpha = 0.5,
-    size = 1
-  ) +
-  labs(
-    x = "Versuchsreihenfolge",
-    y = "max. Kraft in ...",
-    labs = "Bondtool"
-  )
-
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
-plot_bbd_runorder
-
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
-plot_bbd_effect <-
-  data_bbd_mean |>
-  create_effect_plot(
-    factors = ultrasound:temperature,
-    response = rip_force
-  ) +
-  scale_x_continuous(n.breaks = 3) +
-  labs(
-    x = "Level",
-    y = "max. Kraft in ...",
-    colour = "Bondtool"
-  )
-
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
-plot_bbd_effect
-
-
-## ------------------------------------------------------------------------------------------------------------------------------------------------------
 write_csv(
   x = design_bbd,
   file = here::here("data/doe/pt_bbd.csv")
@@ -204,5 +190,4 @@ save(
   plot_bbd_runorder,
   file = here::here("data/pulltest/pt_bbd_plots.rda")
 )
-
 

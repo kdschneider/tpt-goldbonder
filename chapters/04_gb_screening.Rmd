@@ -7,9 +7,7 @@ library(patchwork)
 ```
 
 ```{r}
-data_screening <- read_rds(
-  here::here("data/gatebreak/gb-screening.rds")
-)
+data_screening <- read_rds(here::here("data/gatebreak/gb-screening.rds"))
 load(here::here("data/gatebreak/gb_screening_regression.rda"))
 load(here::here("data/gatebreak/gb_screening_plots.rda"))
 ```
@@ -40,9 +38,7 @@ data_screening |>
 ```
 
 ```{r recommended-values, fig.cap = "Empfohlene Werte aus dem Handbuch des tpt HB-10 Bonders für Golddraht.", out.width="60%"}
-knitr::include_graphics(
-  here::here("static/img/tpt_recommended.png")
-)
+knitr::include_graphics(here::here("static/img/tpt_recommended.png"))
 ```
 
 Aufgrund der Ergebnisse meiner Bachelorarbeit wurde vermutet, dass vor Allem die Ultraschallleistung und Bondzeit einen wesentlichen Einfluss auf die Wahrscheinlichkeit eines Gate-Durchbruchs haben.
@@ -54,9 +50,7 @@ Es wurden pro Levelkombination der Schichtdicke von Gold und Chrom jeweils zwei 
 Mit dem Keysight B1500A wurde an jedem Bond einzeln ein Spannungssweep von 0 bis 100 Volt angelegt. Nach jeder Messung wurde der gemessene Bond mikroskopisch begutachtet. Hierbei hat sich gezeigt, dass es teilweise zu Gate-Durchbrüchen kam, die rein an den Messdaten nicht erkannt worden wären.
 
 ```{r screening-litho, fig.cap="Verwendete Probengeometrie zum Messen von Gate-Durchbrüchen.", out.width="75%"}
-knitr::include_graphics(
-  here::here("static/img/gatebreak/gb-litho-check.png")
-)
+knitr::include_graphics(here::here("static/img/gatebreak/gb-litho-check.png"))
 ```
 
 Da es sich mit Gate-Durchbruch Ja/Nein, um eine kategorische Antwort handelt, wurde der Versuchsplan fünfmal wiederholt. Dadurch konnte in der Auswertung die relative Anzahl an Gate-Durchbrüchen untersucht werden.
@@ -120,7 +114,7 @@ model_screening |>
       "ultrasound" = "US",
       "force" = "F",
       "gold" = "AU",
-      "gate_break_corrected" = "P(Gate-Durchbruch)_trans."
+      "gate_break_asin" = "P(Gate-Durchbruch)_trans."
     ),
     wrap = TRUE,
     terms_per_line = 3,
@@ -130,6 +124,6 @@ model_screening |>
   )
 ```
 
-```{r gb-screening-contour, fig.height = 2.5, fig.cap="Contour-Plot der Regressionsfunktion.", cache=TRUE}
+```{r gb-screening-contour, fig.height = 6, fig.cap="Contour-Plot der Regressionsfunktion.", cache=TRUE}
 plot_screening_contour
 ```
