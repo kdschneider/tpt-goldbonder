@@ -138,10 +138,7 @@ plot_crau_kennlinie
 
 ```{r}
 fs::dir_create(
-  path = c(
-    here::here("data/doe"),
-    here::here("data/gatebreak")
-  ),
+  path = here::here("data/gatebreak"),
   recurse = TRUE
 )
 
@@ -152,7 +149,6 @@ write_rds(
 
 save(
   plot_crau_kennlinie,
-  plot_crau_blind,
   file = here::here("data/gatebreak/gb_mock_plots.rda")
 )
 ```
