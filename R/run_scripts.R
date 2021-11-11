@@ -6,6 +6,7 @@
 ####################################
 
 fs::dir_create(here::here("data"))
+fs::dir_create(here::here("_temp"))
 
 ## clean data folder ----
 fs::dir_ls(
@@ -15,9 +16,43 @@ fs::dir_ls(
   ) |>
   fs::file_delete()
 
-## source all analysis scripts ----
-source(here::here("R/gb_screening.R"))
-source(here::here("R/gb_mock.R"))
-source(here::here("R/pt_bbd.R"))
+## purl scripts
+### get file paths
+files_path <- fs::dir_ls(
+  path = here::here("Rmd"),
+  glob = "*.Rmd"
+)
 
-remove(list = ls())
+### get file names
+files_name <-
+  list.files(
+    path = here::here("Rmd"),
+  ) |>
+  fs::path_filter(glob = "*.Rmd") |>
+  fs::path_ext_remove()
+
+
+purrr::walk2(
+  .x = files_path,
+  .y = files_name,
+  .f = ~knitr::purl(
+    input = .x,
+    output = here::here("_temp", glue::glue("{.y}.R")),
+    documentation = 0
+  )
+)
+
+
+## source all analysis scripts ----
+scripts <- fs::dir_ls(
+  path = here::here("_temp"),
+  glob = "*.R"
+)
+
+purrr::walk(
+  scripts,
+  source
+)
+
+## clean
+fs::dir_delete(here::here("_temp"))

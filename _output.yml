@@ -8,6 +8,7 @@ bookdown::bs4_book:
   template: static/templates/bs4_german.html
 bookdown::html_document2:
   theme: paper
+  self_contained: true
 bookdown::pdf_document2:
   includes:
     in_header: static/preamble.tex

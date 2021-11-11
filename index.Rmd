@@ -35,8 +35,8 @@ Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).
 |                   |           |                                                                                                 |
 |-------------------|-----------|-------------------------------------------------------------------------------------------------|
 | **Bericht**       |           | [PDF](./downloads/tpt_goldbonder_bericht.pdf), [HTML](./downloads/tpt_goldbonder_bericht.html)  |
-| **Auswertungen**  | Gatebreak | [Screening](./downloads/analysis/gb_screening.html), [Mock](./downloads/analysis/gb_mock.html)  |
-|                   | Pulltest  | [Box-Behnken](./downloads/analysis/pt_bbd.html)                                                 |
+| **Auswertungen**  | Gatebreak | [Screening](./downloads/gb_screening.html), [Mock](./downloads/gb_mock.html)  |
+|                   | Pulltest  | [Box-Behnken](./downloads/pt_bbd.html)                                                 |
 | **Sonstiges**     |           | [CSAR Rezept](./downloads/csar.html)                                                            |
 
 ## Code {-}
