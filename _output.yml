@@ -13,6 +13,6 @@ bookdown::pdf_document2:
     in_header: static/preamble.tex
   latex_engine: xelatex
   citation_package: natbib
-  keep_tex: true
+  keep_tex: false
   clean: true
   template: static/templates/eisvogel.latex

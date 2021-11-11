@@ -51,7 +51,8 @@ bookdown::render_book(
 
 ## create downloads
 
-utils::zip(
-  zipfile = here::here("_book/downloads/data.zip"),
-  files = here::here("data")
+zip::zip(
+  zipfile = "_book/downloads/data.zip",
+  files = "data",
+  root = here::here()
 )
