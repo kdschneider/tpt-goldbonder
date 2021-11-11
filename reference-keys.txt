@@ -12,7 +12,6 @@ tab:screening-regression2-stats
 fig:gb-screening-contour
 fig:mock-image
 fig:gb-test-kennlinie
-fig:gb-test-blind
 fig:pt-setup-1
 fig:pt-setup-2
 fig:pt-setup-3
@@ -29,7 +28,7 @@ durchführung
 auswertung
 regression
 gb-mock
-crau
+cr-au
 durchführung-1
 auswertung-1
 crpdau
