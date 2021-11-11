@@ -5,20 +5,16 @@ library(tidyverse)
 ```
 
 ```{r}
-data_mock <- 
-  read_rds(here::here("data/gatebreak/gb_mock.rds"))
-
+data_mock <- read_rds(here::here("data/gatebreak/gb_mock.rds"))
 load(here::here("data/gatebreak/gb_mock_plots.rda"))
 ```
 
-## Cr/Au
+## Cr/Au {#cr-au}
 
 Um die Ergebnisse des Screening Experiments zu überprüfen, wurden mehere Chips mit Cr/Au Bondpads versehen. Diese sind kurzgeschlossen (siehe Abbildung \@ref(fig:mock-image)), und erlauben es so, mehrere Bonds auf einmal zu prüfen. Dies soll eine reale Anwendung simulieren, bei der mehrere Kontakte an einer Probe benötigt werden. 
 
 ```{r mock-image, fig.cap="Lithographie-Muster zum Testen der optimalen Parameterwerte."}
-knitr::include_graphics(
-  here::here("static/img/gatebreak/gb-litho-mock.png")
-)
+knitr::include_graphics(here::here("static/img/gatebreak/gb-litho-mock.png"))
 ```
 
 ### Durchführung
@@ -43,15 +39,21 @@ Die Messungen wurden an einem Keithley SourceMeter 2450 durchgeführt. Hierfür 
 
 Abbildung \@ref(fig:gb-test-kennlinie) zeigt die Kennlinien der Durchgeführten Messungen. Hierbei zeigt Messung 1 an Chip 1 einen Gate-Durchbruch bei 199.5 Volt. Dies hatte einen Einfluss auf Messung 3 an Chip 1: Ab ca. 100 Volt beginnt ein Leckstrom zu fließen. 
 
-Die restlichen Messungen stimmen gut überein: Bei 35.5 Volt existiert ein Peak, welcher auch in den Blindmessungen festgestellt wurde (siehe Abbildung \@ref(fig:gb-test-blind). Im Vergleich zu den Blindmessungen wurde an den Messungen an den Proben ein Blindstrom ab ca. 150 Volt festgestellt. Die Steigung des Blindstroms nimmt von Messung 1 bis 3 ab. 
+Die restlichen Messungen stimmen gut überein: Bei 35.5 Volt existiert ein Peak, 
+welcher auch in den Blindmessungen festgestellt wurde (siehe Abbildung 
+\@ref(fig:gb-test-blind). Im Vergleich zu den Blindmessungen wurde an den 
+Messungen an den Proben ein Blindstrom ab ca. 150 Volt festgestellt. Die 
+Steigung des Blindstroms nimmt von Messung 1 bis 3 ab. 
 
-```{r gb-test-kennlinie, fig.cap="Kennlinien der Messungen an 8 Bonds gleichzeitig. Die Kennlinie der ersten Messung an Chip 1 weißt einen Gate-Durchbruch auf."}
+```{r gb-test-kennlinie, fig.cap="Kennlinien der Messungen an 8 Bonds gleichzeitig. Die Kennlinie der ersten Messung an Probe 1 weißt einen Gate-Durchbruch auf."}
 plot_crau_kennlinie
 ```
 
+## Cr/Pd/Au
 
-```{r gb-test-blind, fig.height = 3, fig.cap="Gemittelte Kennlinie der Blindmessungen."}
-plot_crau_blind
+Die Messungen aus Kapitel \@ref(fig:mock-image)) wurden mit Proben mit Bondpads aus 10 nm Chrom, 15 nm Palladium und 40 nm Gold wiederholt. Die Messergebnisse können Abbildung \@ref(fig:crpdau-kennlinie) entnommen werden.
+
+```
+PLOT
 ```
 
-## Cr/Pd/Au
