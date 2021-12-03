@@ -28,6 +28,8 @@ params:
 ```{r}
 library(tidyverse)
 ```
+> tl;dr *Benutzt den Gold-Bonder!*
+
 Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).
 
 ## Downloads {-}
