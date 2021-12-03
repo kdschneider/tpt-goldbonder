@@ -9,41 +9,47 @@ data_mock <- read_rds(here::here("data/gatebreak/gb_mock.rds"))
 load(here::here("data/gatebreak/gb_mock_plots.rda"))
 ```
 
-## Cr/Au {#cr-au}
+Das Screening Experiment hat gezeigt, dass die Reduktion der Bondparameter zu einer geringeren Wahrscheinlichkeit eines Gatedurchbruchs führt. 
+Die Ultraschallleistung zeigte dabei den größten Effekt. 
+Dies stimmt mit den Messungen am Al-Bonder überein, wobei die Parameterwerte am Goldbonder generell niedriger gewählt werden können.
 
-Um die Ergebnisse des Screening Experiments zu überprüfen, wurden mehere Chips mit Cr/Au Bondpads versehen. Diese sind kurzgeschlossen (siehe Abbildung \@ref(fig:mock-image)), und erlauben es so, mehrere Bonds auf einmal zu prüfen. Dies soll eine reale Anwendung simulieren, bei der mehrere Kontakte an einer Probe benötigt werden. 
+Um die Messergebnisse abschließend zu prüfen, wurden Proben mit "falschen" Hallbars versehen (siehe Abbildung \@ref(fig:mock-image)): 
+Acht Bondpads wurden mittels Leiterbahnen kurzgeschlossen. 
+Dadurch spiegeln die Messungen eine reale Anwendung besser wieder, da alle Bonds eine Spannung von bis zu 200 Volt ohne Gatedurchbruch überstehen müssen. 
+Kommt es an einem Bond zu einem Durchschlag der Backgatespannung, ist die gesamte Probe zerstört. 
 
 ```{r mock-image, fig.cap="Lithographie-Muster zum Testen der optimalen Parameterwerte."}
 knitr::include_graphics(here::here("static/img/gatebreak/gb-litho-mock.png"))
 ```
 
-### Durchführung
+An den Proben wurden mit einem Keithley 2450 SourceMeter jeweils drei Spannungssweeps von 0 bis 200 Volt durchgeführt. 
+Zusätzlich wurden Blindmessungen aufgenommen, um eventuelle Störungen im Messaufbau von tatsächlichen Gatedurchbrüchen unterscheiden zu können. 
 
-Für die Messung wurden alle Bondpads einer Probe mit Bonds versehen. Hierbei wurde ein Bond wiederholt, falls er fehlgeschlagen ist. Hierbei haben 33 von 35 Bonds gehalten.
+Es wurden zwei Typen von Bondpads hergestellt und untersucht: 
+
+  - Cr/Au:        Bondpads aus 40 nm Gold auf 2 nm Chrom.
+  - Cr/Pd/Au :    Bondpads aus 40 nm Gold auf 15 nm Palladium auf 10 nm Chrom.
 
 Die verwendeten Parameterwerte waren: 
 
 ```{r}
 tribble(
-  ~"US", ~"T", ~"F", ~"AU", ~"CR", ~"Temp",
-    110, 150, 200, "40 nm", "2 nm", "100 °C"
+  ~"US", ~"T", ~"F", ~"AU", ~"PD", ~"CR", ~"Temp",
+  110, 150, 200, "40 nm", "0 nm", "2 nm", "100 °C",
+  110, 150, 200, "40 nm", "15 nm", "10 nm", "100 °C"
+  130, 150, 200, "40 nm", "0 nm", "2 nm", "100 °C"
+  130, 150, 200, "40 nm", "15 nm", "10 nm", "100 °C"
 ) |> 
   knitr::kable(
     align = "c"
   )
 ```
 
-Die Messungen wurden an einem Keithley SourceMeter 2450 durchgeführt. Hierfür wurde an jede Probe ein Spannungssweep von 0 bis 200 Volt angelegt. Dies wurde für jede Probe dreimal wiederholt und zusätzlich jeweils eine Blindmessung aufgenommen.
+## Cr/Au {#cr-au}
 
-### Auswertung
-
-Abbildung \@ref(fig:gb-test-kennlinie) zeigt die Kennlinien der Durchgeführten Messungen. Hierbei zeigt Messung 1 an Chip 1 einen Gate-Durchbruch bei 199.5 Volt. Dies hatte einen Einfluss auf Messung 3 an Chip 1: Ab ca. 100 Volt beginnt ein Leckstrom zu fließen. 
-
-Die restlichen Messungen stimmen gut überein: Bei 35.5 Volt existiert ein Peak, 
-welcher auch in den Blindmessungen festgestellt wurde (siehe Abbildung 
-\@ref(fig:gb-test-blind). Im Vergleich zu den Blindmessungen wurde an den 
-Messungen an den Proben ein Blindstrom ab ca. 150 Volt festgestellt. Die 
-Steigung des Blindstroms nimmt von Messung 1 bis 3 ab. 
+- \@ref(fig:gb-test-blind).
+- Leckstrom.
+- Gatedurchbruch. 
 
 ```{r gb-test-kennlinie, fig.cap="Kennlinien der Messungen an 8 Bonds gleichzeitig. Die Kennlinie der ersten Messung an Probe 1 weißt einen Gate-Durchbruch auf."}
 plot_crau_kennlinie
@@ -51,9 +57,6 @@ plot_crau_kennlinie
 
 ## Cr/Pd/Au
 
-Die Messungen aus Kapitel \@ref(fig:mock-image)) wurden mit Proben mit Bondpads aus 10 nm Chrom, 15 nm Palladium und 40 nm Gold wiederholt. Die Messergebnisse können Abbildung \@ref(fig:crpdau-kennlinie) entnommen werden.
-
-```
-PLOT
-```
-
+- Proben sind fertig.
+- Bisher keine Messung möglich. 
+- Wo ist der Messkastern???

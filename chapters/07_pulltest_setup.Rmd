@@ -28,11 +28,9 @@ knitr::include_graphics(here::here("static/img/pulltest/pt-setup-2.jpg"))
 knitr::include_graphics(here::here("static/img/pulltest/pt-setup-3.jpg"))
 ```
 
-Einen geeigneten Haken zu finden, der fein genug ist, um ohne Schwierigkeiten 
-unter den Loop eines Bonds passt, stellte sich als schwierig heraus. Die beste 
-Lösung die wir gefunden haben, ist die Verwendung einer feinen Messspitze. 
-Diese habe ich vorsichtig zurechtgebogen, um einen Haken zu formen (siehe 
-Abbildung \@ref(fig:pulltester-tip)).
+Einen geeigneten Haken zu finden, der fein genug ist, um unter den Loop eines Bonds zu passen, stellte sich als schwierig heraus. 
+Die beste Lösung die wir gefunden haben, ist die Verwendung einer feinen Messspitze des Spitzenmessplatzes. 
+Diese habe ich vorsichtig zurechtgebogen, um einen Haken zu formen (siehe Abbildung \@ref(fig:pulltester-tip)).
 
 ```{r pulltester-tip, out.width = "70%", fig.cap = "Haken des Pulltesters: Eine vorsichtig vergebogene Messspitze."}
 knitr::include_graphics(here::here("static/img/pulltest/pt-tip.jpg"))

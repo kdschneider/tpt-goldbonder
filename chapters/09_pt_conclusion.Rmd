@@ -1,5 +1,21 @@
 # Fazit {#pt-conclusion}
 
-Der Effekt der Bondparameter und Schichtdicken der Bondpads ist im gemessenen Bereich klein, im Vergleich zum Einfluss des Bondtools. So haben Änderungen am Bondtool zu einer starken Verfälschung der Ergebnisse geführt. 
+Die Bondparameter konnten im durchgeführten Experiment nur einen kleinen Effekt im Vergleich zum Bondtool zeigen. 
+Hierdurch wurden die Messergebnisse zu stark verfälscht, als dass konkrete Aussagen zum Einfluss der einzelnen Parameter getroffen werden könnten. 
+Allerdings zeigen die Messungen eindeutig die Wichtigkeit eines ordentlich justierten und unbeschädigten Bondtools. 
+Ist dies nicht gegeben, sinkt die erreichbare Qualität der Bonds drastisch. 
+Dies ist unabhängig der gewählten Paramterwerte der Fall.
 
-Es wäre sinnvoll, ein RSM-Experiment mit einem neuen, unbenutzten Bondtool zu wiederholen. So könnte der Einfluss der Bondparameter besser untersucht werden. Um den Versuchsaufwand zu reduzieren, könnte hierbei eine feste Temperatur von 100 °C verwendet werden. 
+Um die maximal erreichbare Haltekraft am Goldbonder mit 25 µm Draht zu messen, könnten Pull-Tests mit einem neuen, unbenutzten Bondtool wiederholt werden.
+Um den Versuchsaufwand zu reduzieren, könnte hierbei eine feste Temperatur von 100 °C verwendet werden. 
+
+Abschließend kann festgehalten werden: 
+Der Goldbonder bondet zuverlässiger als der Aluminium-Bonder. 
+Solange die Bondparameter im Bereich der Herstellerempfehlung liegen (US = 160, T = 200, F = 250) halten die Bonds zuverlässig.
+Allerdings ist der Goldbonder sehr empfindlich in Bezug auf die Einstellung und den Zustand des Bondtools:
+Bei schlechter Justage oder Beschädigung des Bondtools halten die Bonds zwar noch, jedoch nur sehr schwach. 
+
+Um die Bondtools zu schonen sollten exzessive Ultraschallleistungen vermieden werden. 
+
+*US > 250 ist zu hoch, und beschädigt Bondtool und Backgate! Es soll gebondet werden, nicht gestanzt.*
+
