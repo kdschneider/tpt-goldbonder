@@ -1,4 +1,9 @@
 # build book
-source(here::here("R/run_scripts.R"))
-source(here::here("R/render_bookdown.R"))
-source(here::here("R/render_rmd.R"))
+mypath <- here::here("R/")
+myfiles <- list.files(mypath)
+purrr::map(paste0(mypath, myfiles), source)
+
+createmydata()
+rendermyanalysis()
+rendermyreport()
+
