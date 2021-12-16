@@ -29,14 +29,12 @@ auswertung
 regression
 gb-mock
 cr-au
-durchführung-1
-auswertung-1
 crpdau
 conclusion
 pt-pulltester
 pt-optimal
 pt-doe
 pt-bbd-methods
-auswertung-2
+auswertung-1
 regression-1
 pt-conclusion
