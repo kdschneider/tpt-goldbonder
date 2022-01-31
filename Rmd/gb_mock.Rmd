@@ -35,6 +35,7 @@ source(here::here("R/custom_functions.R"))
 ```{r}
 library(tidyverse)
 library(lubridate)
+library(patchwork)
 ```
 
 ## Read and wrangle data
@@ -42,10 +43,10 @@ library(lubridate)
 
 ```{r}
 files <- list.files(
-  here::here("data-raw/gatebreak/mock/cr_au")
+  here::here("data-raw/gatebreak/mock/cr_au_US100")
 )
 
-data_crau <-
+data_crau_US100 <-
   tibble(
     filename = files,
     type = rep(c("blind", "sample"), each = 3, times = 4),
@@ -56,31 +57,70 @@ data_crau <-
     measurement = map(
       filename,
       ~read_csv(
-        here::here("data-raw/gatebreak/mock/cr_au", .),
+        here::here("data-raw/gatebreak/mock/cr_au_US100", .),
         skip = 8
-      ) |>
-        select(
-          amps = "Reading",
-          volts = "Value",
-          date = "Date",
-          time = "Time"
-        ) |>
-        mutate(
-          date = dmy(date) + hms(time),
-          volts = round(volts, digits = 1)
-        ) |>
-        select(-time)
-    )
+      )
+    ),
+    us = 100
   ) |>
-  select(-filename) |>
-  unnest(measurement) |>
-  group_by(chip, rep) |>
-  nest(measurement = c("amps", "volts")) |>
-  ungroup()
+  select(-filename)
 
+head(data_crau_US100)
+```
 
+```{r}
+files <- 
+  list.files(
+    here::here("data-raw/gatebreak/mock/cr_au_US130"),
+    full.name = TRUE
+  )
+
+data_crau_US130 <- 
+  tibble(files) |> 
+  mutate(
+    measurement = map(files, read_csv, skip = 8)
+  ) |> 
+  mutate(
+    type = case_when(
+      str_detect(files, "blind") ~ "blind",
+      str_detect(files, "real") ~ "sample"
+    ),
+    chip = case_when(
+      str_detect(files, "sample-01") ~ 1,
+      str_detect(files, "sample-02") ~ 2,
+      str_detect(files, "sample-03") ~ 3,
+      str_detect(files, "sample-04") ~ 4
+    ),
+    rep = case_when(
+      str_detect(files, "01.csv") ~ 1,
+      str_detect(files, "02.csv") ~ 2,
+      str_detect(files, "03.csv") ~ 3
+    ),
+    us = 130
+  ) |> 
+  select(-files)
+
+head(data_crau_US130)
+```
+
+```{r}
 data_mock <-
-  data_crau
+  full_join(
+    data_crau_US100, 
+    data_crau_US130
+  ) |> 
+  unnest(measurement) |> 
+  select(
+    type,
+    chip,
+    rep,
+    us,
+    amps = Reading, 
+    volts = Value
+  ) |> 
+  mutate(volts = round(volts, digits = 1))
+
+data_mock |> head()
 ```
 
 ```{r purl = FALSE}
@@ -90,44 +130,51 @@ data_mock |> head()
 #### Plot kennlinie
 
 ```{r}
-plot_crau_kennlinie <-
-  data_crau |>
-  unnest(measurement) |>
-  mutate(
-    chip = str_glue("Probe: {chip}") |>
-      as_factor(),
-    rep = as.character(rep)
-  ) |>
-  mutate(
-    rep = if_else(
-      type == "blind",
-      "Blind",
-      glue::glue("Rep. {rep}") |> as.character()
-    )
-  ) |> 
-  group_by(type, chip, rep, volts) |> 
-  summarise(amps = mean(amps)) |> 
-  ggplot(
+create_kennlinie <- function(data, us) {
+  
+  p <- 
+    data |>
+    filter(
+      us == {{ us }},
+      type == "sample"
+    ) |> 
+    mutate(
+      amps = case_when(
+        amps > 0.05 * 10^(-6) ~ 0.05 * 10^(-6),
+        amps <= 0.05 * 10^(-6) ~ amps
+      )
+    ) |> 
+    group_by(chip, rep, volts) |> 
+    summarise(amps = mean(amps)) |> 
+    ggplot() +
     aes(
       x = volts,
       y = amps * 10^6,
-      colour = as.factor(rep)
-    )
-  ) +
-  geom_line() +
-  scale_colour_brewer(palette = "Set1") +
-  labs(
-    colour = "Rep.",
-    x = "Spannung in V",
-    y = "Stromstärke in µA"
-  ) +
-  facet_wrap(
-    facets = vars(chip)
-  ) +
-  theme(legend.title = element_blank())
+      color = as.factor(rep)
+    ) +
+    geom_line() +
+    scale_colour_brewer(palette = "Set1") +
+    labs(
+      subtitle = glue::glue("Ultraschallleistung: {us}"),
+      colour = "Rep.",
+      x = "Spannung in V",
+      y = "Stromstärke in µA"
+    ) +
+    facet_wrap(facets = vars(chip)) +
+    theme(legend.title = element_blank())
+
+  return(p)
+  
+}
+  
+plot_crau_kennlinie <- 
+  create_kennlinie(data_mock, 100) / create_kennlinie(data_mock, 130) &
+  plot_annotation(
+    title = "Kennlinie"
+  )
 ```
 
-```{r purl = FALSE}
+```{r}
 plot_crau_kennlinie
 ```
 
